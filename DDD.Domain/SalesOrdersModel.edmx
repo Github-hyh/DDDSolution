@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SalesOrdersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SalesOrdersModelStoreContainer">
+    <EntitySet Name="Product" EntityType="SalesOrdersModel.Store.Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductCategory" EntityType="SalesOrdersModel.Store.ProductCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer" EntityType="SalesOrdersModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Address" EntityType="SalesOrdersModel.Store.Address" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SalesOrder" EntityType="SalesOrdersModel.Store.SalesOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderItem" EntityType="SalesOrdersModel.Store.OrderItem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerInfo" EntityType="SalesOrdersModel.Store.CustomerInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductInfo" EntityType="SalesOrdersModel.Store.ProductInfo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductProductCategory" Association="SalesOrdersModel.Store.ProductProductCategory">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerAddress" Association="SalesOrdersModel.Store.CustomerAddress">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="SalesOrderOrderItem" Association="SalesOrdersModel.Store.SalesOrderOrderItem">
+      <End Role="SalesOrder" EntitySet="SalesOrder" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="SalesOrderCustomerInfo" Association="SalesOrdersModel.Store.SalesOrderCustomerInfo">
+      <End Role="SalesOrder" EntitySet="SalesOrder" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="OrderItemProductInfo" Association="SalesOrdersModel.Store.OrderItemProductInfo">
+      <End Role="OrderItem" EntitySet="OrderItem" />
+      <End Role="ProductInfo" EntitySet="ProductInfo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Size" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" />
+    <Property Name="ProductCategory_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Customer_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="TotalPrice" Type="decimal" Nullable="false" />
+    <Property Name="CustomerInfo_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="LineTotal" Type="decimal" Nullable="false" />
+    <Property Name="SalesOrder_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductInfo_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductProductCategory">
+    <End Role="Product" Type="SalesOrdersModel.Store.Product" Multiplicity="*" />
+    <End Role="ProductCategory" Type="SalesOrdersModel.Store.ProductCategory" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerAddress">
+    <End Role="Customer" Type="SalesOrdersModel.Store.Customer" Multiplicity="1" />
+    <End Role="Address" Type="SalesOrdersModel.Store.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalesOrderOrderItem">
+    <End Role="SalesOrder" Type="SalesOrdersModel.Store.SalesOrder" Multiplicity="1" />
+    <End Role="OrderItem" Type="SalesOrdersModel.Store.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="SalesOrder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalesOrderCustomerInfo">
+    <End Role="SalesOrder" Type="SalesOrdersModel.Store.SalesOrder" Multiplicity="*" />
+    <End Role="CustomerInfo" Type="SalesOrdersModel.Store.CustomerInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesOrder">
+        <PropertyRef Name="CustomerInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderItemProductInfo">
+    <End Role="OrderItem" Type="SalesOrdersModel.Store.OrderItem" Multiplicity="*" />
+    <End Role="ProductInfo" Type="SalesOrdersModel.Store.ProductInfo" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ProductInfo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SalesOrdersModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="SalesOrdersModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Product" EntityType="SalesOrdersModel.Product" />
+          <EntitySet Name="ProductCategory" EntityType="SalesOrdersModel.ProductCategory" />
+          <AssociationSet Name="ProductProductCategory" Association="SalesOrdersModel.ProductProductCategory">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+          </AssociationSet>
+          <EntitySet Name="Customer" EntityType="SalesOrdersModel.Customer" />
+          <EntitySet Name="Address" EntityType="SalesOrdersModel.Address" />
+          <AssociationSet Name="CustomerAddress" Association="SalesOrdersModel.CustomerAddress">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <EntitySet Name="SalesOrder" EntityType="SalesOrdersModel.SalesOrder" />
+          <EntitySet Name="OrderItem" EntityType="SalesOrdersModel.OrderItem" />
+          <AssociationSet Name="SalesOrderOrderItem" Association="SalesOrdersModel.SalesOrderOrderItem">
+            <End Role="SalesOrder" EntitySet="SalesOrder" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <EntitySet Name="CustomerInfo" EntityType="SalesOrdersModel.CustomerInfo" />
+          <AssociationSet Name="SalesOrderCustomerInfo" Association="SalesOrdersModel.SalesOrderCustomerInfo">
+            <End Role="SalesOrder" EntitySet="SalesOrder" />
+            <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+          </AssociationSet>
+          <EntitySet Name="ProductInfo" EntityType="SalesOrdersModel.ProductInfo" />
+          <AssociationSet Name="OrderItemProductInfo" Association="SalesOrdersModel.OrderItemProductInfo">
+            <End Role="OrderItem" EntitySet="OrderItem" />
+            <End Role="ProductInfo" EntitySet="ProductInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="ProductName" Type="String" Nullable="false" />
+          <Property Name="Color" Type="String" Nullable="false" />
+          <Property Name="Size" Type="String" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="ProductCategory" Relationship="SalesOrdersModel.ProductProductCategory" FromRole="Product" ToRole="ProductCategory" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="CategoryName" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="SalesOrdersModel.ProductProductCategory" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <Association Name="ProductProductCategory">
+          <End Type="SalesOrdersModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="SalesOrdersModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="SalesOrdersModel.CustomerAddress" FromRole="Customer" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="Street" Type="String" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="SalesOrdersModel.CustomerAddress" FromRole="Address" ToRole="Customer" />
+        </EntityType>
+        <Association Name="CustomerAddress">
+          <End Type="SalesOrdersModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="SalesOrdersModel.Address" Role="Address" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SalesOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="OrderItem" Relationship="SalesOrdersModel.SalesOrderOrderItem" FromRole="SalesOrder" ToRole="OrderItem" />
+          <NavigationProperty Name="CustomerInfo" Relationship="SalesOrdersModel.SalesOrderCustomerInfo" FromRole="SalesOrder" ToRole="CustomerInfo" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="LineTotal" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="SalesOrder" Relationship="SalesOrdersModel.SalesOrderOrderItem" FromRole="OrderItem" ToRole="SalesOrder" />
+          <NavigationProperty Name="ProductInfo" Relationship="SalesOrdersModel.OrderItemProductInfo" FromRole="OrderItem" ToRole="ProductInfo" />
+        </EntityType>
+        <Association Name="SalesOrderOrderItem">
+          <End Type="SalesOrdersModel.SalesOrder" Role="SalesOrder" Multiplicity="1" />
+          <End Type="SalesOrdersModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CustomerInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="Street" Type="String" Nullable="false" />
+          <NavigationProperty Name="SalesOrder" Relationship="SalesOrdersModel.SalesOrderCustomerInfo" FromRole="CustomerInfo" ToRole="SalesOrder" />
+        </EntityType>
+        <Association Name="SalesOrderCustomerInfo">
+          <End Type="SalesOrdersModel.SalesOrder" Role="SalesOrder" Multiplicity="1" />
+          <End Type="SalesOrdersModel.CustomerInfo" Role="CustomerInfo" Multiplicity="1" />
+        </Association>
+        <EntityType Name="ProductInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="OrderItem" Relationship="SalesOrdersModel.OrderItemProductInfo" FromRole="ProductInfo" ToRole="OrderItem" />
+        </EntityType>
+        <Association Name="OrderItemProductInfo">
+          <End Type="SalesOrdersModel.OrderItem" Role="OrderItem" Multiplicity="1" />
+          <End Type="SalesOrdersModel.ProductInfo" Role="ProductInfo" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalesOrdersModelStoreContainer" CdmEntityContainer="SalesOrdersModelContainer">
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategory">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.ProductCategory)">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.Customer)">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.Address)">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesOrder">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.SalesOrder)">
+        <MappingFragment StoreEntitySet="SalesOrder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItem">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.OrderItem)">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.CustomerInfo)">
+        <MappingFragment StoreEntitySet="CustomerInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInfo">
+      <EntityTypeMapping TypeName="IsTypeOf(SalesOrdersModel.ProductInfo)">
+        <MappingFragment StoreEntitySet="ProductInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductProductCategory" TypeName="SalesOrdersModel.ProductProductCategory" StoreEntitySet="Product">
+      <EndProperty Name="ProductCategory">
+        <ScalarProperty Name="Id" ColumnName="ProductCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CustomerAddress" TypeName="SalesOrdersModel.CustomerAddress" StoreEntitySet="Address">
+      <EndProperty Name="Customer">
+        <ScalarProperty Name="Id" ColumnName="Customer_Id" />
+      </EndProperty>
+      <EndProperty Name="Address">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SalesOrderOrderItem" TypeName="SalesOrdersModel.SalesOrderOrderItem" StoreEntitySet="OrderItem">
+      <EndProperty Name="SalesOrder">
+        <ScalarProperty Name="Id" ColumnName="SalesOrder_Id" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SalesOrderCustomerInfo" TypeName="SalesOrdersModel.SalesOrderCustomerInfo" StoreEntitySet="SalesOrder">
+      <EndProperty Name="CustomerInfo">
+        <ScalarProperty Name="Id" ColumnName="CustomerInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="SalesOrder">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderItemProductInfo" TypeName="SalesOrdersModel.OrderItemProductInfo" StoreEntitySet="OrderItem">
+      <EndProperty Name="ProductInfo">
+        <ScalarProperty Name="Id" ColumnName="ProductInfo_Id" />
+      </EndProperty>
+      <EndProperty Name="OrderItem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

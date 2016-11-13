@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Domain", "DDD.Domain\DDD.Domain.csproj", "{494AA847-FD34-42B7-A78A-D73199E658CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Repository", "DDD.Repository\DDD.Repository.csproj", "{3793FC42-57E0-4E6A-8B48-C98F220B747C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.UnitTest", "DDD.UnitTest\DDD.UnitTest.csproj", "{8108540D-5D14-4D2D-BB84-B77237BDEFF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Application", "DDD.Application\DDD.Application.csproj", "{4F6A57F9-4621-481C-A301-A0A5A7B6BFFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.Infrastructure", "DDD.Infrastructure\DDD.Infrastructure.csproj", "{BE72F2EC-AC63-459E-B966-CB1F06806341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD.TransferDTOS", "DDD.TransferDTOS\DDD.TransferDTOS.csproj", "{5EE7DC4D-30F8-4AE3-AD99-2817007929A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{494AA847-FD34-42B7-A78A-D73199E658CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{494AA847-FD34-42B7-A78A-D73199E658CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{494AA847-FD34-42B7-A78A-D73199E658CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{494AA847-FD34-42B7-A78A-D73199E658CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3793FC42-57E0-4E6A-8B48-C98F220B747C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3793FC42-57E0-4E6A-8B48-C98F220B747C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3793FC42-57E0-4E6A-8B48-C98F220B747C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3793FC42-57E0-4E6A-8B48-C98F220B747C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8108540D-5D14-4D2D-BB84-B77237BDEFF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8108540D-5D14-4D2D-BB84-B77237BDEFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8108540D-5D14-4D2D-BB84-B77237BDEFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8108540D-5D14-4D2D-BB84-B77237BDEFF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F6A57F9-4621-481C-A301-A0A5A7B6BFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6A57F9-4621-481C-A301-A0A5A7B6BFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6A57F9-4621-481C-A301-A0A5A7B6BFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6A57F9-4621-481C-A301-A0A5A7B6BFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE72F2EC-AC63-459E-B966-CB1F06806341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE72F2EC-AC63-459E-B966-CB1F06806341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE72F2EC-AC63-459E-B966-CB1F06806341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE72F2EC-AC63-459E-B966-CB1F06806341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE7DC4D-30F8-4AE3-AD99-2817007929A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE7DC4D-30F8-4AE3-AD99-2817007929A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE7DC4D-30F8-4AE3-AD99-2817007929A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE7DC4D-30F8-4AE3-AD99-2817007929A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
