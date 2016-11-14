@@ -153,6 +153,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj">
+      <Project>{be72f2ec-ac63-459e-b966-cb1f06806341}</Project>
+      <Name>DDD.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DDD.TransferDTOS\DDD.TransferDTOS.csproj">
       <Project>{5ee7dc4d-30f8-4ae3-ad99-2817007929a7}</Project>
       <Name>DDD.TransferDTOS</Name>

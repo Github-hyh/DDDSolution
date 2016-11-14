@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using AutoMapper;
+using DDD.Infrastructure.LamdaFilterConvert;
 
 namespace DDD.Repository
 {
@@ -57,7 +58,7 @@ namespace DDD.Repository
         }
 
 
-        List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreateRoot, bool>> condition, RequestPage request, out int totalCount)
+        public List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreateRoot, bool>> condition, RequestPage request, out int totalCount)
         {
             var query = GetByCondition(condition);
             var skip = (request.CurrentPage - 1) * request.PageSize;
@@ -117,5 +118,14 @@ namespace DDD.Repository
             base.RegisterUpdateDTO<TDTO, TAggreateRoot>(tdto, null);
         }
 
+        public List<TAggreateRoot> GetByConditionPages(List<Conditions> condition, RequestPage request, out int totalCount)
+        {
+            return GetByConditionPages(WhereLamdaConverter.Where<TAggreateRoot>(condition), request, out totalCount);
+        }
+
+        public List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, RequestPage request, out int totalCount)
+        {
+            return GetByConditionPages<TDTO>(WhereLamdaConverter.Where<TAggreateRoot>(condition), request, out totalCount);
+        }
     }
 }

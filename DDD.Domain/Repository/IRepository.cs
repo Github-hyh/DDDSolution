@@ -1,4 +1,5 @@
 ﻿using DDD.Domain.Aggreate;
+using DDD.Infrastructure.LamdaFilterConvert;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,13 @@ namespace DDD.Domain.Repository
 
         List<TAggreate> GetByConditionPages(Expression<Func<TAggreate, bool>> condition, RequestPage request, out int totalCount);
 
+        List<TAggreate> GetByConditionPages(List<Conditions> condition, RequestPage request, out int totalCount);
+
         List<TDTO> GetByCondition<TDTO>(Expression<Func<TAggreate, bool>> condition);
 
         List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreate, bool>> condition, RequestPage request, out int totalCount);
+
+        List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, RequestPage request, out int totalCount);
 
         void Update(TAggreate aggreateRoot);
 

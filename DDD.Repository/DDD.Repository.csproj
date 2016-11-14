@@ -66,6 +66,10 @@
       <Project>{494aa847-fd34-42b7-a78a-d73199e658ca}</Project>
       <Name>DDD.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DDD.Infrastructure\DDD.Infrastructure.csproj">
+      <Project>{be72f2ec-ac63-459e-b966-cb1f06806341}</Project>
+      <Name>DDD.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
