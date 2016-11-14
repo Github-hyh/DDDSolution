@@ -6,6 +6,8 @@ using DDD.Repository.Repositories;
 using DDD.Application;
 using System.Collections.Generic;
 using DDD.TransferDTOS;
+using DDD.Domain.Repository;
+using DDD.Infrastructure.LamdaFilterConvert;
 
 namespace DDD.UnitTest
 {
@@ -63,6 +65,32 @@ namespace DDD.UnitTest
             List<string> productNames = new List<string>() { "P1", "P2" };
             List<int> amounts = new List<int>() { 10, 20 };
             salesOrder.CreateSalesOrder(productNames,amounts,"Dick", "Sichuan", "Chengdu", "58 Street");
+        }
+
+        ProductAppService productappservice = new ProductAppService();
+        [TestMethod]
+        public void GetProductDTOByConditionPage()
+        {
+            int i;
+            var fields = new string[2];
+            fields[0] = "ProductName";
+            fields[1] = "Size";
+
+            var operators = new string[2];
+            operators[0] = "Contains";
+            operators[1] = "Equal";
+
+            var values = new string[2];
+            values[0] = "P";
+            values[1] = "Middle";
+
+            var relations = new string[2];
+            relations[0] = "And";
+            relations[1] = "Or";
+
+            var pq = new RequestPage(1, 1, "ProductName", "desc");
+            Assert.AreEqual("C3", productappservice.GetProductDTOSByCondition(Conditions.BuildConditions(fields, operators, values, relations)
+                , pq, out i)[0].PCategoryName);
         }
     }
 }

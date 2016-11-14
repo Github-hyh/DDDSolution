@@ -43,12 +43,12 @@ namespace DDD.Repository
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return Data.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return Data.GetEnumerator();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DDD.Infrastructure.LamdaFilterConvert
         public string Value { get; set; }
         public string Relation { get; set; }
 
-        public List<Conditions> BuildConditions(string[] fields, string[] operators, string[] values, 
+        public static List<Conditions> BuildConditions(string[] fields, string[] operators, string[] values, 
             string[] relations)
         {
             var conditions = fields.Select((t, i) => new Conditions

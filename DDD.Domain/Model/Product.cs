@@ -17,38 +17,7 @@ namespace DDD.Domain
         public Product(IRepository<Product> irepository)
         {
             _IRepository = irepository;
-            ProductMapping();
-        }
-
-        private void ProductMapping()
-        {
-            var mapIn = Mapper.CreateMap<ProductDTO, Product>();
-            mapIn.ConstructProjectionUsing(p => new Product
-            {
-                ProductName = p.Name,
-                Size = p.Size,
-                Color = p.Color,
-                Count = p.Amount,
-                UnitPrice = p.UnitPrice,
-                ProductCategory = new ProductCategory
-                {
-                    Id = Guid.NewGuid(),
-                    CategoryName = p.PCategoryName,
-                    Description = p.PDescription
-                }
-            });
-
-            var mapOut = Mapper.CreateMap<Product, ProductDTO>();
-            mapOut.ConstructProjectionUsing(p => new ProductDTO
-            {
-                Name = p.ProductName,
-                Size = p.Size,
-                Color = p.Color,
-                Amount = p.Count,
-                UnitPrice = p.UnitPrice,
-                PCategoryName = p.ProductCategory.CategoryName,
-                PDescription = p.ProductCategory.Description
-            });
+            //ProductMapping();
         }
 
         public Product()
@@ -82,11 +51,6 @@ namespace DDD.Domain
         public Product GetProductByName(string pName)
         {
             return this._IRepository.GetByCondition(p => p.ProductName == pName).FirstOrDefault();
-        }
-
-        public ProductDTO GetProductDTOByName(string pName)
-        {
-            return this._IRepository.GetByCondition<ProductDTO>(p => p.ProductName == pName).FirstOrDefault();
         }
     }
 }
