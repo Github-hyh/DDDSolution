@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="PermissionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="PermissionModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PermissionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="PermissionModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BAS_PermissionContainer" EntityType="PermissionModel.BAS_PermissionContainer" />
+          <EntitySet Name="BAS_IdentityContainer" EntityType="PermissionModel.BAS_IdentityContainer" />
+          <EntitySet Name="BAS_ObjectContainer" EntityType="PermissionModel.BAS_ObjectContainer" />
+          <EntitySet Name="BAS_PermissionAssign" EntityType="PermissionModel.BAS_PermissionAssign" />
+          <AssociationSet Name="BAS_PermissionContainerBAS_PermissionAssign" Association="PermissionModel.BAS_PermissionContainerBAS_PermissionAssign">
+            <End Role="BAS_PermissionContainer" EntitySet="BAS_PermissionContainer" />
+            <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_IdentityContainerBAS_PermissionAssign" Association="PermissionModel.BAS_IdentityContainerBAS_PermissionAssign">
+            <End Role="BAS_IdentityContainer" EntitySet="BAS_IdentityContainer" />
+            <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_ObjectContainerBAS_PermissionAssign" Association="PermissionModel.BAS_ObjectContainerBAS_PermissionAssign">
+            <End Role="BAS_ObjectContainer" EntitySet="BAS_ObjectContainer" />
+            <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+          </AssociationSet>
+          <EntitySet Name="BAS_Object" EntityType="PermissionModel.BAS_Object" />
+          <EntitySet Name="BAS_ObjectSet" EntityType="PermissionModel.BAS_ObjectSet" />
+          <EntitySet Name="BAS_OOSet" EntityType="PermissionModel.BAS_OOSet" />
+          <AssociationSet Name="BAS_ObjectBAS_OOSet" Association="PermissionModel.BAS_ObjectBAS_OOSet">
+            <End Role="BAS_Object" EntitySet="BAS_Object" />
+            <End Role="BAS_OOSet" EntitySet="BAS_OOSet" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_ObjectSetBAS_OOSet" Association="PermissionModel.BAS_ObjectSetBAS_OOSet">
+            <End Role="BAS_ObjectSet" EntitySet="BAS_ObjectSet" />
+            <End Role="BAS_OOSet" EntitySet="BAS_OOSet" />
+          </AssociationSet>
+          <EntitySet Name="BAS_Permission" EntityType="PermissionModel.BAS_Permission" />
+          <EntitySet Name="BAS_PermissionSet" EntityType="PermissionModel.BAS_PermissionSet" />
+          <EntitySet Name="BAS_PPSet" EntityType="PermissionModel.BAS_PPSet" />
+          <AssociationSet Name="BAS_PermissionBAS_PPSet" Association="PermissionModel.BAS_PermissionBAS_PPSet">
+            <End Role="BAS_Permission" EntitySet="BAS_Permission" />
+            <End Role="BAS_PPSet" EntitySet="BAS_PPSet" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_PermissionSetBAS_PPSet" Association="PermissionModel.BAS_PermissionSetBAS_PPSet">
+            <End Role="BAS_PermissionSet" EntitySet="BAS_PermissionSet" />
+            <End Role="BAS_PPSet" EntitySet="BAS_PPSet" />
+          </AssociationSet>
+          <EntitySet Name="BAS_User" EntityType="PermissionModel.BAS_User" />
+          <EntitySet Name="BAS_Post" EntityType="PermissionModel.BAS_Post" />
+          <EntitySet Name="BAS_Department" EntityType="PermissionModel.BAS_Department" />
+          <EntitySet Name="UDPSet" EntityType="PermissionModel.UDPSet" />
+          <AssociationSet Name="BAS_UserUDPSet" Association="PermissionModel.BAS_UserUDPSet">
+            <End Role="BAS_User" EntitySet="BAS_User" />
+            <End Role="UDPSet" EntitySet="UDPSet" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_PostUDPSet" Association="PermissionModel.BAS_PostUDPSet">
+            <End Role="BAS_Post" EntitySet="BAS_Post" />
+            <End Role="UDPSet" EntitySet="UDPSet" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_DepartmentUDPSet" Association="PermissionModel.BAS_DepartmentUDPSet">
+            <End Role="BAS_Department" EntitySet="BAS_Department" />
+            <End Role="UDPSet" EntitySet="UDPSet" />
+          </AssociationSet>
+          <EntitySet Name="BAS_Role" EntityType="PermissionModel.BAS_Role" />
+          <EntitySet Name="BAS_PR" EntityType="PermissionModel.BAS_PR" />
+          <AssociationSet Name="BAS_RoleBAS_PR" Association="PermissionModel.BAS_RoleBAS_PR">
+            <End Role="BAS_Role" EntitySet="BAS_Role" />
+            <End Role="BAS_PR" EntitySet="BAS_PR" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_PostBAS_PR" Association="PermissionModel.BAS_PostBAS_PR">
+            <End Role="BAS_Post" EntitySet="BAS_Post" />
+            <End Role="BAS_PR" EntitySet="BAS_PR" />
+          </AssociationSet>
+          <EntitySet Name="BAS_UR" EntityType="PermissionModel.BAS_UR" />
+          <AssociationSet Name="BAS_RoleBAS_UR" Association="PermissionModel.BAS_RoleBAS_UR">
+            <End Role="BAS_Role" EntitySet="BAS_Role" />
+            <End Role="BAS_UR" EntitySet="BAS_UR" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_UserBAS_UR" Association="PermissionModel.BAS_UserBAS_UR">
+            <End Role="BAS_User" EntitySet="BAS_User" />
+            <End Role="BAS_UR" EntitySet="BAS_UR" />
+          </AssociationSet>
+          <EntitySet Name="BAS_DR" EntityType="PermissionModel.BAS_DR" />
+          <AssociationSet Name="BAS_RoleBAS_DR" Association="PermissionModel.BAS_RoleBAS_DR">
+            <End Role="BAS_Role" EntitySet="BAS_Role" />
+            <End Role="BAS_DR" EntitySet="BAS_DR" />
+          </AssociationSet>
+          <AssociationSet Name="BAS_DepartmentBAS_DR" Association="PermissionModel.BAS_DepartmentBAS_DR">
+            <End Role="BAS_Department" EntitySet="BAS_Department" />
+            <End Role="BAS_DR" EntitySet="BAS_DR" />
+          </AssociationSet>
+          <EntitySet Name="BAS_UserLogin" EntityType="PermissionModel.BAS_UserLogin" />
+          <AssociationSet Name="BAS_UserBAS_UserLogin" Association="PermissionModel.BAS_UserBAS_UserLogin">
+            <End Role="BAS_User" EntitySet="BAS_User" />
+            <End Role="BAS_UserLogin" EntitySet="BAS_UserLogin" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BAS_PermissionContainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_PermissionAssign" Relationship="PermissionModel.BAS_PermissionContainerBAS_PermissionAssign" FromRole="BAS_PermissionContainer" ToRole="BAS_PermissionAssign" />
+        </EntityType>
+        <EntityType Name="BAS_IdentityContainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_PermissionAssign" Relationship="PermissionModel.BAS_IdentityContainerBAS_PermissionAssign" FromRole="BAS_IdentityContainer" ToRole="BAS_PermissionAssign" />
+        </EntityType>
+        <EntityType Name="BAS_ObjectContainer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_PermissionAssign" Relationship="PermissionModel.BAS_ObjectContainerBAS_PermissionAssign" FromRole="BAS_ObjectContainer" ToRole="BAS_PermissionAssign" />
+          </EntityType>
+        <EntityType Name="BAS_PermissionAssign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_PermissionContainer" Relationship="PermissionModel.BAS_PermissionContainerBAS_PermissionAssign" FromRole="BAS_PermissionAssign" ToRole="BAS_PermissionContainer" />
+          <NavigationProperty Name="BAS_IdentityContainer" Relationship="PermissionModel.BAS_IdentityContainerBAS_PermissionAssign" FromRole="BAS_PermissionAssign" ToRole="BAS_IdentityContainer" />
+          <NavigationProperty Name="BAS_ObjectContainer" Relationship="PermissionModel.BAS_ObjectContainerBAS_PermissionAssign" FromRole="BAS_PermissionAssign" ToRole="BAS_ObjectContainer" />
+        </EntityType>
+        <Association Name="BAS_PermissionContainerBAS_PermissionAssign">
+          <End Type="PermissionModel.BAS_PermissionContainer" Role="BAS_PermissionContainer" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PermissionAssign" Role="BAS_PermissionAssign" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_IdentityContainerBAS_PermissionAssign">
+          <End Type="PermissionModel.BAS_IdentityContainer" Role="BAS_IdentityContainer" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PermissionAssign" Role="BAS_PermissionAssign" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_ObjectContainerBAS_PermissionAssign">
+          <End Type="PermissionModel.BAS_ObjectContainer" Role="BAS_ObjectContainer" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PermissionAssign" Role="BAS_PermissionAssign" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_Object">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Obj_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_OOSet" Relationship="PermissionModel.BAS_ObjectBAS_OOSet" FromRole="BAS_Object" ToRole="BAS_OOSet" />
+        </EntityType>
+        <EntityType Name="BAS_ObjectSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Obj_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_OOSet" Relationship="PermissionModel.BAS_ObjectSetBAS_OOSet" FromRole="BAS_ObjectSet" ToRole="BAS_OOSet" />
+        </EntityType>
+        <EntityType Name="BAS_OOSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_Object" Relationship="PermissionModel.BAS_ObjectBAS_OOSet" FromRole="BAS_OOSet" ToRole="BAS_Object" />
+          <NavigationProperty Name="BAS_ObjectSet" Relationship="PermissionModel.BAS_ObjectSetBAS_OOSet" FromRole="BAS_OOSet" ToRole="BAS_ObjectSet" />
+        </EntityType>
+        <Association Name="BAS_ObjectBAS_OOSet">
+          <End Type="PermissionModel.BAS_Object" Role="BAS_Object" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_OOSet" Role="BAS_OOSet" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_ObjectSetBAS_OOSet">
+          <End Type="PermissionModel.BAS_ObjectSet" Role="BAS_ObjectSet" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_OOSet" Role="BAS_OOSet" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="CodeProperty" Type="String" Nullable="false" />
+          <Property Name="Operation" Type="String" Nullable="false" />
+          <Property Name="CodeValue" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Per_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_PPSet" Relationship="PermissionModel.BAS_PermissionBAS_PPSet" FromRole="BAS_Permission" ToRole="BAS_PPSet" />
+        </EntityType>
+        <EntityType Name="BAS_PermissionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Per_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_PPSet" Relationship="PermissionModel.BAS_PermissionSetBAS_PPSet" FromRole="BAS_PermissionSet" ToRole="BAS_PPSet" />
+        </EntityType>
+        <EntityType Name="BAS_PPSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_Permission" Relationship="PermissionModel.BAS_PermissionBAS_PPSet" FromRole="BAS_PPSet" ToRole="BAS_Permission" />
+          <NavigationProperty Name="BAS_PermissionSet" Relationship="PermissionModel.BAS_PermissionSetBAS_PPSet" FromRole="BAS_PPSet" ToRole="BAS_PermissionSet" />
+        </EntityType>
+        <Association Name="BAS_PermissionBAS_PPSet">
+          <End Type="PermissionModel.BAS_Permission" Role="BAS_Permission" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PPSet" Role="BAS_PPSet" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_PermissionSetBAS_PPSet">
+          <End Type="PermissionModel.BAS_PermissionSet" Role="BAS_PermissionSet" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PPSet" Role="BAS_PPSet" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="No" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_UserUDPSet" FromRole="BAS_User" ToRole="UDPSet" />
+          <NavigationProperty Name="BAS_UR" Relationship="PermissionModel.BAS_UserBAS_UR" FromRole="BAS_User" ToRole="BAS_UR" />
+          <NavigationProperty Name="BAS_UserLogin" Relationship="PermissionModel.BAS_UserBAS_UserLogin" FromRole="BAS_User" ToRole="BAS_UserLogin" />
+        </EntityType>
+        <EntityType Name="BAS_Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_PostUDPSet" FromRole="BAS_Post" ToRole="UDPSet" />
+          <NavigationProperty Name="BAS_PR" Relationship="PermissionModel.BAS_PostBAS_PR" FromRole="BAS_Post" ToRole="BAS_PR" />
+          </EntityType>
+        <EntityType Name="BAS_Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_DepartmentUDPSet" FromRole="BAS_Department" ToRole="UDPSet" />
+          <NavigationProperty Name="BAS_DR" Relationship="PermissionModel.BAS_DepartmentBAS_DR" FromRole="BAS_Department" ToRole="BAS_DR" />
+        </EntityType>
+        <EntityType Name="UDPSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_User" Relationship="PermissionModel.BAS_UserUDPSet" FromRole="UDPSet" ToRole="BAS_User" />
+          <NavigationProperty Name="BAS_Post" Relationship="PermissionModel.BAS_PostUDPSet" FromRole="UDPSet" ToRole="BAS_Post" />
+          <NavigationProperty Name="BAS_Department" Relationship="PermissionModel.BAS_DepartmentUDPSet" FromRole="UDPSet" ToRole="BAS_Department" />
+          <Property Name="IsMain" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="BAS_UserUDPSet">
+          <End Type="PermissionModel.BAS_User" Role="BAS_User" Multiplicity="1" />
+          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_PostUDPSet">
+          <End Type="PermissionModel.BAS_Post" Role="BAS_Post" Multiplicity="1" />
+          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_DepartmentUDPSet">
+          <End Type="PermissionModel.BAS_Department" Role="BAS_Department" Multiplicity="1" />
+          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_PR" Relationship="PermissionModel.BAS_RoleBAS_PR" FromRole="BAS_Role" ToRole="BAS_PR" />
+          <NavigationProperty Name="BAS_UR" Relationship="PermissionModel.BAS_RoleBAS_UR" FromRole="BAS_Role" ToRole="BAS_UR" />
+          <NavigationProperty Name="BAS_DR" Relationship="PermissionModel.BAS_RoleBAS_DR" FromRole="BAS_Role" ToRole="BAS_DR" />
+        </EntityType>
+        <EntityType Name="BAS_PR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_Role" Relationship="PermissionModel.BAS_RoleBAS_PR" FromRole="BAS_PR" ToRole="BAS_Role" />
+          <NavigationProperty Name="BAS_Post" Relationship="PermissionModel.BAS_PostBAS_PR" FromRole="BAS_PR" ToRole="BAS_Post" />
+        </EntityType>
+        <Association Name="BAS_RoleBAS_PR">
+          <End Type="PermissionModel.BAS_Role" Role="BAS_Role" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PR" Role="BAS_PR" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_PostBAS_PR">
+          <End Type="PermissionModel.BAS_Post" Role="BAS_Post" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_PR" Role="BAS_PR" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_UR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_Role" Relationship="PermissionModel.BAS_RoleBAS_UR" FromRole="BAS_UR" ToRole="BAS_Role" />
+          <NavigationProperty Name="BAS_User" Relationship="PermissionModel.BAS_UserBAS_UR" FromRole="BAS_UR" ToRole="BAS_User" />
+        </EntityType>
+        <Association Name="BAS_RoleBAS_UR">
+          <End Type="PermissionModel.BAS_Role" Role="BAS_Role" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_UR" Role="BAS_UR" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_UserBAS_UR">
+          <End Type="PermissionModel.BAS_User" Role="BAS_User" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_UR" Role="BAS_UR" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_DR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="BAS_Role" Relationship="PermissionModel.BAS_RoleBAS_DR" FromRole="BAS_DR" ToRole="BAS_Role" />
+          <NavigationProperty Name="BAS_Department" Relationship="PermissionModel.BAS_DepartmentBAS_DR" FromRole="BAS_DR" ToRole="BAS_Department" />
+        </EntityType>
+        <Association Name="BAS_RoleBAS_DR">
+          <End Type="PermissionModel.BAS_Role" Role="BAS_Role" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_DR" Role="BAS_DR" Multiplicity="*" />
+        </Association>
+        <Association Name="BAS_DepartmentBAS_DR">
+          <End Type="PermissionModel.BAS_Department" Role="BAS_Department" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_DR" Role="BAS_DR" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BAS_UserLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="BAS_User" Relationship="PermissionModel.BAS_UserBAS_UserLogin" FromRole="BAS_UserLogin" ToRole="BAS_User" />
+        </EntityType>
+        <Association Name="BAS_UserBAS_UserLogin">
+          <End Type="PermissionModel.BAS_User" Role="BAS_User" Multiplicity="1" />
+          <End Type="PermissionModel.BAS_UserLogin" Role="BAS_UserLogin" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="PermissionModel" />
+        <Alias Key="Target" Value="PermissionModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="PermissionModelContainer" StorageEntityContainer="PermissionModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

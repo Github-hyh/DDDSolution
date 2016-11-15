@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4aab77b3bd2f4f62b22d0b186bbafcf4" Name="Diagram1" >
+        <EntityTypeShape EntityType="PermissionModel.BAS_PermissionContainer" Width="1.5" PointX="1.25" PointY="0.5" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_IdentityContainer" Width="1.5" PointX="1.25" PointY="2.125" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_ObjectContainer" Width="1.5" PointX="1.25" PointY="3.75" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_PermissionAssign" Width="1.5" PointX="4" PointY="2" />
+        <AssociationConnector Association="PermissionModel.BAS_PermissionContainerBAS_PermissionAssign" />
+        <AssociationConnector Association="PermissionModel.BAS_IdentityContainerBAS_PermissionAssign" />
+        <AssociationConnector Association="PermissionModel.BAS_ObjectContainerBAS_PermissionAssign" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_Object" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_ObjectSet" Width="1.5" PointX="8.75" PointY="0.5" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_OOSet" Width="1.5" PointX="7.625" PointY="2.875" />
+        <AssociationConnector Association="PermissionModel.BAS_ObjectBAS_OOSet" />
+        <AssociationConnector Association="PermissionModel.BAS_ObjectSetBAS_OOSet" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_Permission" Width="1.5" PointX="4.625" PointY="5.25" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_PermissionSet" Width="1.5" PointX="7.5" PointY="5.25" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_PPSet" Width="1.5" PointX="6.625" PointY="7.875" />
+        <AssociationConnector Association="PermissionModel.BAS_PermissionBAS_PPSet" />
+        <AssociationConnector Association="PermissionModel.BAS_PermissionSetBAS_PPSet" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_User" Width="1.5" PointX="14.875" PointY="2.875" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_Post" Width="1.5" PointX="14.75" PointY="0.5" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_Department" Width="1.5" PointX="14.75" PointY="5.375" />
+        <EntityTypeShape EntityType="PermissionModel.UDPSet" Width="1.5" PointX="19.5" PointY="3" />
+        <AssociationConnector Association="PermissionModel.BAS_UserUDPSet" />
+        <AssociationConnector Association="PermissionModel.BAS_PostUDPSet" />
+        <AssociationConnector Association="PermissionModel.BAS_DepartmentUDPSet" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_Role" Width="1.5" PointX="11.125" PointY="3.125" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_PR" Width="1.5" PointX="12.125" PointY="0.625" />
+        <AssociationConnector Association="PermissionModel.BAS_RoleBAS_PR" />
+        <AssociationConnector Association="PermissionModel.BAS_PostBAS_PR" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_UR" Width="1.5" PointX="13" PointY="3.5" />
+        <AssociationConnector Association="PermissionModel.BAS_RoleBAS_UR" />
+        <AssociationConnector Association="PermissionModel.BAS_UserBAS_UR" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_DR" Width="1.5" PointX="12.25" PointY="6.25" />
+        <AssociationConnector Association="PermissionModel.BAS_RoleBAS_DR" />
+        <AssociationConnector Association="PermissionModel.BAS_DepartmentBAS_DR" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_UserLogin" Width="1.5" PointX="17.375" PointY="4.875" />
+        <AssociationConnector Association="PermissionModel.BAS_UserBAS_UserLogin" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

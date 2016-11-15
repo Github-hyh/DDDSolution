@@ -89,6 +89,11 @@
     <Compile Include="OrderItem.cs">
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PermissionModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PermissionModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
     </Compile>
@@ -132,6 +137,13 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="PermissionModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PermissionModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PermissionModel.edmx.diagram">
+      <DependentUpon>PermissionModel.edmx</DependentUpon>
+    </None>
     <None Include="SalesOrdersModel.edmx.diagram">
       <DependentUpon>SalesOrdersModel.edmx</DependentUpon>
     </None>
