@@ -35,7 +35,7 @@ namespace DDD.Domain
 
         public Customer GetCustomerByName(string name)
         {
-            return this._IRepository.GetByCondition(c => c.Name == name).FirstOrDefault();
+            return this._IRepository.GetByCondition(c => c.Name == name, p=>true).FirstOrDefault();
         }
     }
 }

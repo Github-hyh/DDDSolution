@@ -76,12 +76,12 @@ namespace DDD.Application
 
         public ProductDTO GetProductDTOByName(string pName)
         {
-            return this.productRepository.GetByCondition<ProductDTO>(p => p.ProductName == pName).FirstOrDefault();
+            return this.productRepository.GetByCondition<ProductDTO>(p => p.ProductName == pName , p=>true).FirstOrDefault();
         }
 
         public List<ProductDTO> GetProductDTOSByCondition(List<Conditions> conditions, RequestPage request, out int totalCount)
         {
-            return this.productRepository.GetByConditionPages<ProductDTO>(conditions, request, out totalCount);
+            return this.productRepository.GetByConditionPages<ProductDTO>(conditions, p=>true, request, out totalCount);
         }
     }
 }

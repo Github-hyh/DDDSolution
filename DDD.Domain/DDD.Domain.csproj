@@ -67,6 +67,60 @@
     <Compile Include="Aggreate\IAggreateRoot.cs" />
     <Compile Include="Aggreate\IEntity.cs" />
     <Compile Include="Aggreate\IValueObject.cs" />
+    <Compile Include="BAS_Department.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_DR.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_IdentityContainer.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_Object.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_ObjectContainer.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_ObjectSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_OOSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_Permission.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_PermissionAssign.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_PermissionContainer.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_PermissionSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_Post.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_PPSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_PR.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_Role.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_UR.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_User.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS_UserLogin.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
     </Compile>
@@ -86,8 +140,21 @@
     <Compile Include="Model\ProductInfo.cs" />
     <Compile Include="Model\SalesOrder.cs" />
     <Compile Include="Model\ValueObject.cs" />
+    <Compile Include="OperationType.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="OrderItem.cs">
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PermissionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PermissionModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PermissionModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +194,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesOrdersModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="UDPSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="SalesOrdersModel.edmx">
@@ -149,6 +219,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PermissionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PermissionModel.Context.cs</LastGenOutput>
+      <DependentUpon>PermissionModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="PermissionModel.edmx.sql" />
+    <Content Include="PermissionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PermissionModel.cs</LastGenOutput>
+      <DependentUpon>PermissionModel.edmx</DependentUpon>
+    </Content>
     <Content Include="SalesOrdersModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SalesOrdersModel.Context.cs</LastGenOutput>

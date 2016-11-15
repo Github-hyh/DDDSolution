@@ -4,11 +4,463 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="PermissionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="PermissionModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="PermissionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PermissionModelStoreContainer">
+    <EntitySet Name="BAS_PermissionContainer" EntityType="PermissionModel.Store.BAS_PermissionContainer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_IdentityContainer" EntityType="PermissionModel.Store.BAS_IdentityContainer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_ObjectContainer" EntityType="PermissionModel.Store.BAS_ObjectContainer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_PermissionAssign" EntityType="PermissionModel.Store.BAS_PermissionAssign" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_Object" EntityType="PermissionModel.Store.BAS_Object" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_ObjectSet" EntityType="PermissionModel.Store.BAS_ObjectSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_OOSet" EntityType="PermissionModel.Store.BAS_OOSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_Permission" EntityType="PermissionModel.Store.BAS_Permission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_PermissionSet" EntityType="PermissionModel.Store.BAS_PermissionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_PPSet" EntityType="PermissionModel.Store.BAS_PPSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_User" EntityType="PermissionModel.Store.BAS_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_Post" EntityType="PermissionModel.Store.BAS_Post" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_Department" EntityType="PermissionModel.Store.BAS_Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UDPSet" EntityType="PermissionModel.Store.UDPSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_Role" EntityType="PermissionModel.Store.BAS_Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_PR" EntityType="PermissionModel.Store.BAS_PR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_UR" EntityType="PermissionModel.Store.BAS_UR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_DR" EntityType="PermissionModel.Store.BAS_DR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_UserLogin" EntityType="PermissionModel.Store.BAS_UserLogin" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="BAS_PermissionContainerBAS_PermissionAssign" Association="PermissionModel.Store.BAS_PermissionContainerBAS_PermissionAssign">
+      <End Role="BAS_PermissionContainer" EntitySet="BAS_PermissionContainer" />
+      <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_IdentityContainerBAS_PermissionAssign" Association="PermissionModel.Store.BAS_IdentityContainerBAS_PermissionAssign">
+      <End Role="BAS_IdentityContainer" EntitySet="BAS_IdentityContainer" />
+      <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_ObjectContainerBAS_PermissionAssign" Association="PermissionModel.Store.BAS_ObjectContainerBAS_PermissionAssign">
+      <End Role="BAS_ObjectContainer" EntitySet="BAS_ObjectContainer" />
+      <End Role="BAS_PermissionAssign" EntitySet="BAS_PermissionAssign" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_ObjectBAS_OOSet" Association="PermissionModel.Store.BAS_ObjectBAS_OOSet">
+      <End Role="BAS_Object" EntitySet="BAS_Object" />
+      <End Role="BAS_OOSet" EntitySet="BAS_OOSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_ObjectSetBAS_OOSet" Association="PermissionModel.Store.BAS_ObjectSetBAS_OOSet">
+      <End Role="BAS_ObjectSet" EntitySet="BAS_ObjectSet" />
+      <End Role="BAS_OOSet" EntitySet="BAS_OOSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_PermissionBAS_PPSet" Association="PermissionModel.Store.BAS_PermissionBAS_PPSet">
+      <End Role="BAS_Permission" EntitySet="BAS_Permission" />
+      <End Role="BAS_PPSet" EntitySet="BAS_PPSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_PermissionSetBAS_PPSet" Association="PermissionModel.Store.BAS_PermissionSetBAS_PPSet">
+      <End Role="BAS_PermissionSet" EntitySet="BAS_PermissionSet" />
+      <End Role="BAS_PPSet" EntitySet="BAS_PPSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_UserUDPSet" Association="PermissionModel.Store.BAS_UserUDPSet">
+      <End Role="BAS_User" EntitySet="BAS_User" />
+      <End Role="UDPSet" EntitySet="UDPSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_PostUDPSet" Association="PermissionModel.Store.BAS_PostUDPSet">
+      <End Role="BAS_Post" EntitySet="BAS_Post" />
+      <End Role="UDPSet" EntitySet="UDPSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_DepartmentUDPSet" Association="PermissionModel.Store.BAS_DepartmentUDPSet">
+      <End Role="BAS_Department" EntitySet="BAS_Department" />
+      <End Role="UDPSet" EntitySet="UDPSet" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_RoleBAS_PR" Association="PermissionModel.Store.BAS_RoleBAS_PR">
+      <End Role="BAS_Role" EntitySet="BAS_Role" />
+      <End Role="BAS_PR" EntitySet="BAS_PR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_PostBAS_PR" Association="PermissionModel.Store.BAS_PostBAS_PR">
+      <End Role="BAS_Post" EntitySet="BAS_Post" />
+      <End Role="BAS_PR" EntitySet="BAS_PR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_RoleBAS_UR" Association="PermissionModel.Store.BAS_RoleBAS_UR">
+      <End Role="BAS_Role" EntitySet="BAS_Role" />
+      <End Role="BAS_UR" EntitySet="BAS_UR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_UserBAS_UR" Association="PermissionModel.Store.BAS_UserBAS_UR">
+      <End Role="BAS_User" EntitySet="BAS_User" />
+      <End Role="BAS_UR" EntitySet="BAS_UR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_RoleBAS_DR" Association="PermissionModel.Store.BAS_RoleBAS_DR">
+      <End Role="BAS_Role" EntitySet="BAS_Role" />
+      <End Role="BAS_DR" EntitySet="BAS_DR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_DepartmentBAS_DR" Association="PermissionModel.Store.BAS_DepartmentBAS_DR">
+      <End Role="BAS_Department" EntitySet="BAS_Department" />
+      <End Role="BAS_DR" EntitySet="BAS_DR" />
+    </AssociationSet>
+    <AssociationSet Name="BAS_UserBAS_UserLogin" Association="PermissionModel.Store.BAS_UserBAS_UserLogin">
+      <End Role="BAS_User" EntitySet="BAS_User" />
+      <End Role="BAS_UserLogin" EntitySet="BAS_UserLogin" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BAS_PermissionContainer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_IdentityContainer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_ObjectContainer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_PermissionAssign">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_PermissionContainer_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_IdentityContainer_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_ObjectContainer_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_Object">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Obj_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_ObjectSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Obj_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_OOSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Object_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_ObjectSet_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CodeProperty" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Operation" Type="int" Nullable="false" />
+    <Property Name="CodeValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Per_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_PermissionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Per_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_PPSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Permission_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_PermissionSet_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="No" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BAS_UserLogin_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UDPSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsMain" Type="bit" Nullable="false" />
+    <Property Name="BAS_User_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Post_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Department_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_PR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Role_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Post_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_UR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Role_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_User_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_DR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Role_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BAS_Department_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BAS_UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="BAS_PermissionContainerBAS_PermissionAssign">
+    <End Role="BAS_PermissionContainer" Type="PermissionModel.Store.BAS_PermissionContainer" Multiplicity="1" />
+    <End Role="BAS_PermissionAssign" Type="PermissionModel.Store.BAS_PermissionAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_PermissionContainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PermissionAssign">
+        <PropertyRef Name="BAS_PermissionContainer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_IdentityContainerBAS_PermissionAssign">
+    <End Role="BAS_IdentityContainer" Type="PermissionModel.Store.BAS_IdentityContainer" Multiplicity="1" />
+    <End Role="BAS_PermissionAssign" Type="PermissionModel.Store.BAS_PermissionAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_IdentityContainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PermissionAssign">
+        <PropertyRef Name="BAS_IdentityContainer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_ObjectContainerBAS_PermissionAssign">
+    <End Role="BAS_ObjectContainer" Type="PermissionModel.Store.BAS_ObjectContainer" Multiplicity="1" />
+    <End Role="BAS_PermissionAssign" Type="PermissionModel.Store.BAS_PermissionAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_ObjectContainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PermissionAssign">
+        <PropertyRef Name="BAS_ObjectContainer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_ObjectBAS_OOSet">
+    <End Role="BAS_Object" Type="PermissionModel.Store.BAS_Object" Multiplicity="1" />
+    <End Role="BAS_OOSet" Type="PermissionModel.Store.BAS_OOSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Object">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_OOSet">
+        <PropertyRef Name="BAS_Object_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_ObjectSetBAS_OOSet">
+    <End Role="BAS_ObjectSet" Type="PermissionModel.Store.BAS_ObjectSet" Multiplicity="1" />
+    <End Role="BAS_OOSet" Type="PermissionModel.Store.BAS_OOSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_ObjectSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_OOSet">
+        <PropertyRef Name="BAS_ObjectSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_PermissionBAS_PPSet">
+    <End Role="BAS_Permission" Type="PermissionModel.Store.BAS_Permission" Multiplicity="1" />
+    <End Role="BAS_PPSet" Type="PermissionModel.Store.BAS_PPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PPSet">
+        <PropertyRef Name="BAS_Permission_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_PermissionSetBAS_PPSet">
+    <End Role="BAS_PermissionSet" Type="PermissionModel.Store.BAS_PermissionSet" Multiplicity="1" />
+    <End Role="BAS_PPSet" Type="PermissionModel.Store.BAS_PPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_PermissionSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PPSet">
+        <PropertyRef Name="BAS_PermissionSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_UserUDPSet">
+    <End Role="BAS_User" Type="PermissionModel.Store.BAS_User" Multiplicity="1" />
+    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UDPSet">
+        <PropertyRef Name="BAS_User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_PostUDPSet">
+    <End Role="BAS_Post" Type="PermissionModel.Store.BAS_Post" Multiplicity="1" />
+    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Post">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UDPSet">
+        <PropertyRef Name="BAS_Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_DepartmentUDPSet">
+    <End Role="BAS_Department" Type="PermissionModel.Store.BAS_Department" Multiplicity="1" />
+    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UDPSet">
+        <PropertyRef Name="BAS_Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_RoleBAS_PR">
+    <End Role="BAS_Role" Type="PermissionModel.Store.BAS_Role" Multiplicity="1" />
+    <End Role="BAS_PR" Type="PermissionModel.Store.BAS_PR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PR">
+        <PropertyRef Name="BAS_Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_PostBAS_PR">
+    <End Role="BAS_Post" Type="PermissionModel.Store.BAS_Post" Multiplicity="1" />
+    <End Role="BAS_PR" Type="PermissionModel.Store.BAS_PR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Post">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_PR">
+        <PropertyRef Name="BAS_Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_RoleBAS_UR">
+    <End Role="BAS_Role" Type="PermissionModel.Store.BAS_Role" Multiplicity="1" />
+    <End Role="BAS_UR" Type="PermissionModel.Store.BAS_UR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_UR">
+        <PropertyRef Name="BAS_Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_UserBAS_UR">
+    <End Role="BAS_User" Type="PermissionModel.Store.BAS_User" Multiplicity="1" />
+    <End Role="BAS_UR" Type="PermissionModel.Store.BAS_UR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_UR">
+        <PropertyRef Name="BAS_User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_RoleBAS_DR">
+    <End Role="BAS_Role" Type="PermissionModel.Store.BAS_Role" Multiplicity="1" />
+    <End Role="BAS_DR" Type="PermissionModel.Store.BAS_DR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_DR">
+        <PropertyRef Name="BAS_Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_DepartmentBAS_DR">
+    <End Role="BAS_Department" Type="PermissionModel.Store.BAS_Department" Multiplicity="1" />
+    <End Role="BAS_DR" Type="PermissionModel.Store.BAS_DR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_DR">
+        <PropertyRef Name="BAS_Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BAS_UserBAS_UserLogin">
+    <End Role="BAS_User" Type="PermissionModel.Store.BAS_User" Multiplicity="*" />
+    <End Role="BAS_UserLogin" Type="PermissionModel.Store.BAS_UserLogin" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BAS_UserLogin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BAS_User">
+        <PropertyRef Name="BAS_UserLogin_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PermissionModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -186,7 +638,7 @@
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="CodeProperty" Type="String" Nullable="false" />
-          <Property Name="Operation" Type="String" Nullable="false" />
+          <Property Name="Operation" Type="PermissionModel.OperationType" Nullable="false" />
           <Property Name="CodeValue" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
@@ -348,17 +800,319 @@
           <End Type="PermissionModel.BAS_User" Role="BAS_User" Multiplicity="1" />
           <End Type="PermissionModel.BAS_UserLogin" Role="BAS_UserLogin" Multiplicity="1" />
         </Association>
+        <EnumType Name="OperationType">
+          <Member Name="Read" Value="0" />
+          <Member Name="Update" Value="1" />
+          <Member Name="Drop" Value="2" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="PermissionModel" />
-        <Alias Key="Target" Value="PermissionModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="PermissionModelContainer" StorageEntityContainer="PermissionModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PermissionModelStoreContainer" CdmEntityContainer="PermissionModelContainer">
+    <EntitySetMapping Name="BAS_PermissionContainer">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_PermissionContainer)">
+        <MappingFragment StoreEntitySet="BAS_PermissionContainer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_IdentityContainer">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_IdentityContainer)">
+        <MappingFragment StoreEntitySet="BAS_IdentityContainer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_ObjectContainer">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_ObjectContainer)">
+        <MappingFragment StoreEntitySet="BAS_ObjectContainer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_PermissionAssign">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_PermissionAssign)">
+        <MappingFragment StoreEntitySet="BAS_PermissionAssign">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_Object">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_Object)">
+        <MappingFragment StoreEntitySet="BAS_Object">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Obj_Id" ColumnName="Obj_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_ObjectSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_ObjectSet)">
+        <MappingFragment StoreEntitySet="BAS_ObjectSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Obj_Id" ColumnName="Obj_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_OOSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_OOSet)">
+        <MappingFragment StoreEntitySet="BAS_OOSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_Permission">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_Permission)">
+        <MappingFragment StoreEntitySet="BAS_Permission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodeProperty" ColumnName="CodeProperty" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="CodeValue" ColumnName="CodeValue" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Per_Id" ColumnName="Per_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_PermissionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_PermissionSet)">
+        <MappingFragment StoreEntitySet="BAS_PermissionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Per_Id" ColumnName="Per_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_PPSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_PPSet)">
+        <MappingFragment StoreEntitySet="BAS_PPSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_User">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_User)">
+        <MappingFragment StoreEntitySet="BAS_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="No" ColumnName="No" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Con_Id" ColumnName="Con_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_Post">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_Post)">
+        <MappingFragment StoreEntitySet="BAS_Post">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Con_Id" ColumnName="Con_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_Department">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_Department)">
+        <MappingFragment StoreEntitySet="BAS_Department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Con_Id" ColumnName="Con_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UDPSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.UDPSet)">
+        <MappingFragment StoreEntitySet="UDPSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_Role">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_Role)">
+        <MappingFragment StoreEntitySet="BAS_Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Con_Id" ColumnName="Con_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_PR">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_PR)">
+        <MappingFragment StoreEntitySet="BAS_PR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_UR">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_UR)">
+        <MappingFragment StoreEntitySet="BAS_UR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_DR">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_DR)">
+        <MappingFragment StoreEntitySet="BAS_DR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAS_UserLogin">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_UserLogin)">
+        <MappingFragment StoreEntitySet="BAS_UserLogin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BAS_PermissionContainerBAS_PermissionAssign" TypeName="PermissionModel.BAS_PermissionContainerBAS_PermissionAssign" StoreEntitySet="BAS_PermissionAssign">
+      <EndProperty Name="BAS_PermissionContainer">
+        <ScalarProperty Name="Id" ColumnName="BAS_PermissionContainer_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PermissionAssign">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_IdentityContainerBAS_PermissionAssign" TypeName="PermissionModel.BAS_IdentityContainerBAS_PermissionAssign" StoreEntitySet="BAS_PermissionAssign">
+      <EndProperty Name="BAS_IdentityContainer">
+        <ScalarProperty Name="Id" ColumnName="BAS_IdentityContainer_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PermissionAssign">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_ObjectContainerBAS_PermissionAssign" TypeName="PermissionModel.BAS_ObjectContainerBAS_PermissionAssign" StoreEntitySet="BAS_PermissionAssign">
+      <EndProperty Name="BAS_ObjectContainer">
+        <ScalarProperty Name="Id" ColumnName="BAS_ObjectContainer_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PermissionAssign">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_ObjectBAS_OOSet" TypeName="PermissionModel.BAS_ObjectBAS_OOSet" StoreEntitySet="BAS_OOSet">
+      <EndProperty Name="BAS_Object">
+        <ScalarProperty Name="Id" ColumnName="BAS_Object_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_OOSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_ObjectSetBAS_OOSet" TypeName="PermissionModel.BAS_ObjectSetBAS_OOSet" StoreEntitySet="BAS_OOSet">
+      <EndProperty Name="BAS_ObjectSet">
+        <ScalarProperty Name="Id" ColumnName="BAS_ObjectSet_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_OOSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_PermissionBAS_PPSet" TypeName="PermissionModel.BAS_PermissionBAS_PPSet" StoreEntitySet="BAS_PPSet">
+      <EndProperty Name="BAS_Permission">
+        <ScalarProperty Name="Id" ColumnName="BAS_Permission_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PPSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_PermissionSetBAS_PPSet" TypeName="PermissionModel.BAS_PermissionSetBAS_PPSet" StoreEntitySet="BAS_PPSet">
+      <EndProperty Name="BAS_PermissionSet">
+        <ScalarProperty Name="Id" ColumnName="BAS_PermissionSet_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PPSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_UserUDPSet" TypeName="PermissionModel.BAS_UserUDPSet" StoreEntitySet="UDPSet">
+      <EndProperty Name="BAS_User">
+        <ScalarProperty Name="Id" ColumnName="BAS_User_Id" />
+      </EndProperty>
+      <EndProperty Name="UDPSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_PostUDPSet" TypeName="PermissionModel.BAS_PostUDPSet" StoreEntitySet="UDPSet">
+      <EndProperty Name="BAS_Post">
+        <ScalarProperty Name="Id" ColumnName="BAS_Post_Id" />
+      </EndProperty>
+      <EndProperty Name="UDPSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_DepartmentUDPSet" TypeName="PermissionModel.BAS_DepartmentUDPSet" StoreEntitySet="UDPSet">
+      <EndProperty Name="BAS_Department">
+        <ScalarProperty Name="Id" ColumnName="BAS_Department_Id" />
+      </EndProperty>
+      <EndProperty Name="UDPSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_RoleBAS_PR" TypeName="PermissionModel.BAS_RoleBAS_PR" StoreEntitySet="BAS_PR">
+      <EndProperty Name="BAS_Role">
+        <ScalarProperty Name="Id" ColumnName="BAS_Role_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_PostBAS_PR" TypeName="PermissionModel.BAS_PostBAS_PR" StoreEntitySet="BAS_PR">
+      <EndProperty Name="BAS_Post">
+        <ScalarProperty Name="Id" ColumnName="BAS_Post_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_PR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_RoleBAS_UR" TypeName="PermissionModel.BAS_RoleBAS_UR" StoreEntitySet="BAS_UR">
+      <EndProperty Name="BAS_Role">
+        <ScalarProperty Name="Id" ColumnName="BAS_Role_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_UR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_UserBAS_UR" TypeName="PermissionModel.BAS_UserBAS_UR" StoreEntitySet="BAS_UR">
+      <EndProperty Name="BAS_User">
+        <ScalarProperty Name="Id" ColumnName="BAS_User_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_UR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_RoleBAS_DR" TypeName="PermissionModel.BAS_RoleBAS_DR" StoreEntitySet="BAS_DR">
+      <EndProperty Name="BAS_Role">
+        <ScalarProperty Name="Id" ColumnName="BAS_Role_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_DR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_DepartmentBAS_DR" TypeName="PermissionModel.BAS_DepartmentBAS_DR" StoreEntitySet="BAS_DR">
+      <EndProperty Name="BAS_Department">
+        <ScalarProperty Name="Id" ColumnName="BAS_Department_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_DR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BAS_UserBAS_UserLogin" TypeName="PermissionModel.BAS_UserBAS_UserLogin" StoreEntitySet="BAS_User">
+      <EndProperty Name="BAS_UserLogin">
+        <ScalarProperty Name="Id" ColumnName="BAS_UserLogin_Id" />
+      </EndProperty>
+      <EndProperty Name="BAS_User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -372,6 +1126,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

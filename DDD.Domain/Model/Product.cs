@@ -50,7 +50,7 @@ namespace DDD.Domain
 
         public Product GetProductByName(string pName)
         {
-            return this._IRepository.GetByCondition(p => p.ProductName == pName).FirstOrDefault();
+            return this._IRepository.GetByCondition(p => p.ProductName == pName, p=>true).FirstOrDefault();
         }
     }
 }

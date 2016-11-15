@@ -24,15 +24,15 @@ namespace DDD.Repository
             base.RegisterCreateDTO<TDTO, TAggreateRoot>(tdto, null);
         }
 
-        public List<TAggreateRoot> GetByCondition(Expression<Func<TAggreateRoot, bool>> condition)
+        public List<TAggreateRoot> GetByCondition(Expression<Func<TAggreateRoot, bool>> condition, Expression<Func<TAggreateRoot, bool>> definecondition)
         {
-            return SalesOrderDBContext.Set<TAggreateRoot>().Where(condition).ToList();
+            return SalesOrderDBContext.Set<TAggreateRoot>().Where(condition.And(definecondition)).ToList();
         }
 
-        public List<TDTO> GetByCondition<TDTO>(Expression<Func<TAggreateRoot, bool>> condition)
+        public List<TDTO> GetByCondition<TDTO>(Expression<Func<TAggreateRoot, bool>> condition, Expression<Func<TAggreateRoot, bool>> definecondition)
         {
             List<TDTO> tdos = new List<TDTO>();
-            var aggreateRoots = GetByCondition(condition);
+            var aggreateRoots = GetByCondition(condition, definecondition);
             if(aggreateRoots.Count > 0)
             {
                 foreach(TAggreateRoot aggreateRoot in aggreateRoots)
@@ -44,9 +44,9 @@ namespace DDD.Repository
             return tdos;
         }
 
-        public List<TAggreateRoot> GetByConditionPages(Expression<Func<TAggreateRoot, bool>> condition, RequestPage request, out int totalCount)
+        public List<TAggreateRoot> GetByConditionPages(Expression<Func<TAggreateRoot, bool>> condition, Expression<Func<TAggreateRoot, bool>> definecondition, RequestPage request, out int totalCount)
         {
-            var query = GetByCondition(condition);
+            var query = GetByCondition(condition, definecondition);
             var skip = (request.CurrentPage - 1) * request.PageSize;
             var take = request.PageSize;
             var queryResult = request.Order == "ASC" ?
@@ -58,9 +58,9 @@ namespace DDD.Repository
         }
 
 
-        public List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreateRoot, bool>> condition, RequestPage request, out int totalCount)
+        public List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreateRoot, bool>> condition, Expression<Func<TAggreateRoot, bool>> definecondition, RequestPage request, out int totalCount)
         {
-            var query = GetByCondition(condition);
+            var query = GetByCondition(condition, definecondition);
             var skip = (request.CurrentPage - 1) * request.PageSize;
             var take = request.PageSize;
             var queryResult = request.Order == "ASC" ?
@@ -118,14 +118,14 @@ namespace DDD.Repository
             base.RegisterUpdateDTO<TDTO, TAggreateRoot>(tdto, null);
         }
 
-        public List<TAggreateRoot> GetByConditionPages(List<Conditions> condition, RequestPage request, out int totalCount)
+        public List<TAggreateRoot> GetByConditionPages(List<Conditions> condition, Expression<Func<TAggreateRoot, bool>> definecondition, RequestPage request, out int totalCount)
         {
-            return GetByConditionPages(WhereLamdaConverter.Where<TAggreateRoot>(condition), request, out totalCount);
+            return GetByConditionPages(WhereLamdaConverter.Where<TAggreateRoot>(condition), definecondition, request, out totalCount);
         }
 
-        public List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, RequestPage request, out int totalCount)
+        public List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, Expression<Func<TAggreateRoot, bool>> definecondition, RequestPage request, out int totalCount)
         {
-            return GetByConditionPages<TDTO>(WhereLamdaConverter.Where<TAggreateRoot>(condition), request, out totalCount);
+            return GetByConditionPages<TDTO>(WhereLamdaConverter.Where<TAggreateRoot>(condition), definecondition, request, out totalCount);
         }
     }
 }

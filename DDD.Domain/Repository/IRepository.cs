@@ -19,17 +19,17 @@ namespace DDD.Domain.Repository
 
         TDTO GetById<TDTO>(Guid id);
 
-        List<TAggreate> GetByCondition(Expression<Func<TAggreate, bool>> condition);
+        List<TAggreate> GetByCondition(Expression<Func<TAggreate, bool>> condition, Expression<Func<TAggreate, bool>> definecondition);
 
-        List<TAggreate> GetByConditionPages(Expression<Func<TAggreate, bool>> condition, RequestPage request, out int totalCount);
+        List<TAggreate> GetByConditionPages(Expression<Func<TAggreate, bool>> condition, Expression<Func<TAggreate, bool>> definecondition, RequestPage request, out int totalCount);
 
-        List<TAggreate> GetByConditionPages(List<Conditions> condition, RequestPage request, out int totalCount);
+        List<TAggreate> GetByConditionPages(List<Conditions> condition, Expression<Func<TAggreate, bool>> definecondition, RequestPage request, out int totalCount);
 
-        List<TDTO> GetByCondition<TDTO>(Expression<Func<TAggreate, bool>> condition);
+        List<TDTO> GetByCondition <TDTO>(Expression<Func<TAggreate, bool>> condition, Expression<Func<TAggreate, bool>> definecondition);
 
-        List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreate, bool>> condition, RequestPage request, out int totalCount);
+        List<TDTO> GetByConditionPages<TDTO>(Expression<Func<TAggreate, bool>> condition, Expression<Func<TAggreate, bool>> definecondition, RequestPage request, out int totalCount);
 
-        List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, RequestPage request, out int totalCount);
+        List<TDTO> GetByConditionPages<TDTO>(List<Conditions> condition, Expression<Func<TAggreate, bool>> definecondition, RequestPage request, out int totalCount);
 
         void Update(TAggreate aggreateRoot);
 
