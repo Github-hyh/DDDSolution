@@ -129,6 +129,11 @@
     </Compile>
     <Compile Include="DomainService\ISalesOrderService.cs" />
     <Compile Include="DomainService\SalesOrderService.cs" />
+    <Compile Include="ModelPermission\BAS_Department.cs" />
+    <Compile Include="ModelPermission\BAS_Post.cs" />
+    <Compile Include="ModelPermission\BAS_Role.cs" />
+    <Compile Include="ModelPermission\BAS_User.cs" />
+    <Compile Include="ModelPermission\BAS_UserLogin.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AggreateRoot.cs" />
     <Compile Include="Model\Customer.cs" />

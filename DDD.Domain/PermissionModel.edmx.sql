@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/15/2016 22:13:26
+-- Date Created: 11/16/2016 21:41:48
 -- Generated from EDMX file: F:\GitProject\DDDSolution\DDD.Domain\PermissionModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,119 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_BAS_PermissionContainerBAS_PermissionAssign]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PermissionAssign] DROP CONSTRAINT [FK_BAS_PermissionContainerBAS_PermissionAssign];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_IdentityContainerBAS_PermissionAssign]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PermissionAssign] DROP CONSTRAINT [FK_BAS_IdentityContainerBAS_PermissionAssign];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_ObjectContainerBAS_PermissionAssign]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PermissionAssign] DROP CONSTRAINT [FK_BAS_ObjectContainerBAS_PermissionAssign];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_ObjectBAS_OOSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_OOSet] DROP CONSTRAINT [FK_BAS_ObjectBAS_OOSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_ObjectSetBAS_OOSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_OOSet] DROP CONSTRAINT [FK_BAS_ObjectSetBAS_OOSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_PermissionBAS_PPSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PPSet] DROP CONSTRAINT [FK_BAS_PermissionBAS_PPSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_PermissionSetBAS_PPSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PPSet] DROP CONSTRAINT [FK_BAS_PermissionSetBAS_PPSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_UserUDPSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_UserUDPSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_PostUDPSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_PostUDPSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_DepartmentUDPSet]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_DepartmentUDPSet];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_RoleBAS_PR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PR] DROP CONSTRAINT [FK_BAS_RoleBAS_PR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_PostBAS_PR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_PR] DROP CONSTRAINT [FK_BAS_PostBAS_PR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_RoleBAS_UR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_UR] DROP CONSTRAINT [FK_BAS_RoleBAS_UR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_UserBAS_UR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_UR] DROP CONSTRAINT [FK_BAS_UserBAS_UR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_RoleBAS_DR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_DR] DROP CONSTRAINT [FK_BAS_RoleBAS_DR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_DepartmentBAS_DR]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_DR] DROP CONSTRAINT [FK_BAS_DepartmentBAS_DR];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BAS_UserBAS_UserLogin]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BAS_User] DROP CONSTRAINT [FK_BAS_UserBAS_UserLogin];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[BAS_PermissionContainer]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_PermissionContainer];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_IdentityContainer]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_IdentityContainer];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_ObjectContainer]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_ObjectContainer];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_PermissionAssign]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_PermissionAssign];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_Object]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_Object];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_ObjectSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_ObjectSet];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_OOSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_OOSet];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_Permission]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_Permission];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_PermissionSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_PermissionSet];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_PPSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_PPSet];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_User]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_User];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_Post]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_Post];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_Department]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_Department];
+GO
+IF OBJECT_ID(N'[dbo].[UDPSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UDPSet];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_Role]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_Role];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_PR]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_PR];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_UR]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_UR];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_DR]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_DR];
+GO
+IF OBJECT_ID(N'[dbo].[BAS_UserLogin]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_UserLogin];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -60,7 +168,7 @@ CREATE TABLE [dbo].[BAS_Object] (
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Code] nvarchar(max)  NOT NULL,
-    [Obj_Id] nvarchar(max)  NOT NULL
+    [Obj_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -69,7 +177,7 @@ CREATE TABLE [dbo].[BAS_ObjectSet] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Obj_Id] nvarchar(max)  NOT NULL
+    [Obj_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -89,7 +197,7 @@ CREATE TABLE [dbo].[BAS_Permission] (
     [CodeValue] nvarchar(max)  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Per_Id] nvarchar(max)  NOT NULL
+    [Per_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -98,7 +206,7 @@ CREATE TABLE [dbo].[BAS_PermissionSet] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Per_Id] nvarchar(max)  NOT NULL
+    [Per_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -116,7 +224,7 @@ CREATE TABLE [dbo].[BAS_User] (
     [No] nvarchar(max)  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Mobile] nvarchar(max)  NOT NULL,
-    [Con_Id] nvarchar(max)  NOT NULL,
+    [Con_Id] uniqueidentifier  NOT NULL,
     [BAS_UserLogin_Id] uniqueidentifier  NOT NULL
 );
 GO
@@ -126,7 +234,7 @@ CREATE TABLE [dbo].[BAS_Post] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Con_Id] nvarchar(max)  NOT NULL
+    [Con_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -135,7 +243,7 @@ CREATE TABLE [dbo].[BAS_Department] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Con_Id] nvarchar(max)  NOT NULL
+    [Con_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -154,7 +262,7 @@ CREATE TABLE [dbo].[BAS_Role] (
     [Id] uniqueidentifier  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Con_Id] nvarchar(max)  NOT NULL
+    [Con_Id] uniqueidentifier  NOT NULL
 );
 GO
 

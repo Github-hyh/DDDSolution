@@ -129,7 +129,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Obj_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Obj_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_ObjectSet">
     <Key>
@@ -138,7 +138,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Obj_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Obj_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_OOSet">
     <Key>
@@ -158,7 +158,7 @@
     <Property Name="CodeValue" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Per_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Per_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_PermissionSet">
     <Key>
@@ -167,7 +167,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Per_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Per_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_PPSet">
     <Key>
@@ -185,7 +185,7 @@
     <Property Name="No" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Mobile" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="BAS_UserLogin_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_Post">
@@ -195,7 +195,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_Department">
     <Key>
@@ -204,7 +204,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="UDPSet">
     <Key>
@@ -223,7 +223,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Con_Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Con_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="BAS_PR">
     <Key>
@@ -603,7 +603,7 @@
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
           <Property Name="Code" Type="String" Nullable="false" />
-          <Property Name="Obj_Id" Type="String" Nullable="false" />
+          <Property Name="Obj_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="BAS_OOSet" Relationship="PermissionModel.BAS_ObjectBAS_OOSet" FromRole="BAS_Object" ToRole="BAS_OOSet" />
         </EntityType>
         <EntityType Name="BAS_ObjectSet">
@@ -613,7 +613,7 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Obj_Id" Type="String" Nullable="false" />
+          <Property Name="Obj_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="BAS_OOSet" Relationship="PermissionModel.BAS_ObjectSetBAS_OOSet" FromRole="BAS_ObjectSet" ToRole="BAS_OOSet" />
         </EntityType>
         <EntityType Name="BAS_OOSet">
@@ -642,7 +642,7 @@
           <Property Name="CodeValue" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Per_Id" Type="String" Nullable="false" />
+          <Property Name="Per_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="BAS_PPSet" Relationship="PermissionModel.BAS_PermissionBAS_PPSet" FromRole="BAS_Permission" ToRole="BAS_PPSet" />
         </EntityType>
         <EntityType Name="BAS_PermissionSet">
@@ -652,7 +652,7 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Per_Id" Type="String" Nullable="false" />
+          <Property Name="Per_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="BAS_PPSet" Relationship="PermissionModel.BAS_PermissionSetBAS_PPSet" FromRole="BAS_PermissionSet" ToRole="BAS_PPSet" />
         </EntityType>
         <EntityType Name="BAS_PPSet">
@@ -679,7 +679,7 @@
           <Property Name="No" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Mobile" Type="String" Nullable="false" />
-          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_UserUDPSet" FromRole="BAS_User" ToRole="UDPSet" />
           <NavigationProperty Name="BAS_UR" Relationship="PermissionModel.BAS_UserBAS_UR" FromRole="BAS_User" ToRole="BAS_UR" />
           <NavigationProperty Name="BAS_UserLogin" Relationship="PermissionModel.BAS_UserBAS_UserLogin" FromRole="BAS_User" ToRole="BAS_UserLogin" />
@@ -691,7 +691,7 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_PostUDPSet" FromRole="BAS_Post" ToRole="UDPSet" />
           <NavigationProperty Name="BAS_PR" Relationship="PermissionModel.BAS_PostBAS_PR" FromRole="BAS_Post" ToRole="BAS_PR" />
           </EntityType>
@@ -702,7 +702,7 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_DepartmentUDPSet" FromRole="BAS_Department" ToRole="UDPSet" />
           <NavigationProperty Name="BAS_DR" Relationship="PermissionModel.BAS_DepartmentBAS_DR" FromRole="BAS_Department" ToRole="BAS_DR" />
         </EntityType>
@@ -735,7 +735,7 @@
           <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Con_Id" Type="String" Nullable="false" />
+          <Property Name="Con_Id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="BAS_PR" Relationship="PermissionModel.BAS_RoleBAS_PR" FromRole="BAS_Role" ToRole="BAS_PR" />
           <NavigationProperty Name="BAS_UR" Relationship="PermissionModel.BAS_RoleBAS_UR" FromRole="BAS_Role" ToRole="BAS_UR" />
           <NavigationProperty Name="BAS_DR" Relationship="PermissionModel.BAS_RoleBAS_DR" FromRole="BAS_Role" ToRole="BAS_DR" />
