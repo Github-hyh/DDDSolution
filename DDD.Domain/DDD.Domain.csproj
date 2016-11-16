@@ -133,7 +133,9 @@
     <Compile Include="DomainService\ISalesOrderService.cs" />
     <Compile Include="DomainService\SalesOrderService.cs" />
     <Compile Include="ModelPermission\BAS_Department.cs" />
+    <Compile Include="ModelPermission\BAS_DR.cs" />
     <Compile Include="ModelPermission\BAS_Post.cs" />
+    <Compile Include="ModelPermission\BAS_PR.cs" />
     <Compile Include="ModelPermission\BAS_Role.cs" />
     <Compile Include="ModelPermission\BAS_UDPSet.cs" />
     <Compile Include="ModelPermission\BAS_User.cs" />
