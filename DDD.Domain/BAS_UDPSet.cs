@@ -12,7 +12,7 @@ namespace DDD.Domain
     using System;
     using System.Collections.Generic;
     
-    public partial class UDPSet
+    public partial class BAS_UDPSet
     {
         public System.Guid Id { get; set; }
         public bool IsMain { get; set; }

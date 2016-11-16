@@ -38,7 +38,7 @@ namespace DDD.Domain
         public virtual DbSet<BAS_User> BAS_User { get; set; }
         public virtual DbSet<BAS_Post> BAS_Post { get; set; }
         public virtual DbSet<BAS_Department> BAS_Department { get; set; }
-        public virtual DbSet<UDPSet> UDPSet { get; set; }
+        public virtual DbSet<BAS_UDPSet> BAS_UDPSet { get; set; }
         public virtual DbSet<BAS_Role> BAS_Role { get; set; }
         public virtual DbSet<BAS_PR> BAS_PR { get; set; }
         public virtual DbSet<BAS_UR> BAS_UR { get; set; }

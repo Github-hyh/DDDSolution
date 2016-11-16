@@ -112,6 +112,9 @@
     <Compile Include="BAS_Role.cs">
       <DependentUpon>PermissionModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BAS_UDPSet.cs">
+      <DependentUpon>PermissionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BAS_UR.cs">
       <DependentUpon>PermissionModel.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,7 @@
     <Compile Include="ModelPermission\BAS_Department.cs" />
     <Compile Include="ModelPermission\BAS_Post.cs" />
     <Compile Include="ModelPermission\BAS_Role.cs" />
+    <Compile Include="ModelPermission\BAS_UDPSet.cs" />
     <Compile Include="ModelPermission\BAS_User.cs" />
     <Compile Include="ModelPermission\BAS_UserLogin.cs" />
     <Compile Include="Model\Address.cs" />
@@ -198,9 +202,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesOrdersModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="UDPSet.cs">
-      <DependentUpon>PermissionModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

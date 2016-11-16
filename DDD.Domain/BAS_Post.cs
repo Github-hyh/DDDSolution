@@ -17,7 +17,7 @@ namespace DDD.Domain
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BAS_Post()
         {
-            this.UDPSet = new HashSet<UDPSet>();
+            this.UDPSet = new HashSet<BAS_UDPSet>();
             this.BAS_PR = new HashSet<BAS_PR>();
         }
     
@@ -27,7 +27,7 @@ namespace DDD.Domain
         public System.Guid Con_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UDPSet> UDPSet { get; set; }
+        public virtual ICollection<BAS_UDPSet> UDPSet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAS_PR> BAS_PR { get; set; }
     }

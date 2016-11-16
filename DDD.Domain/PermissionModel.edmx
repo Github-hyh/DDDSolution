@@ -19,7 +19,7 @@
     <EntitySet Name="BAS_User" EntityType="PermissionModel.Store.BAS_User" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BAS_Post" EntityType="PermissionModel.Store.BAS_Post" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BAS_Department" EntityType="PermissionModel.Store.BAS_Department" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UDPSet" EntityType="PermissionModel.Store.UDPSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BAS_UDPSet" EntityType="PermissionModel.Store.BAS_UDPSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BAS_Role" EntityType="PermissionModel.Store.BAS_Role" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BAS_PR" EntityType="PermissionModel.Store.BAS_PR" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BAS_UR" EntityType="PermissionModel.Store.BAS_UR" store:Type="Tables" Schema="dbo" />
@@ -55,15 +55,15 @@
     </AssociationSet>
     <AssociationSet Name="BAS_UserUDPSet" Association="PermissionModel.Store.BAS_UserUDPSet">
       <End Role="BAS_User" EntitySet="BAS_User" />
-      <End Role="UDPSet" EntitySet="UDPSet" />
+      <End Role="UDPSet" EntitySet="BAS_UDPSet" />
     </AssociationSet>
     <AssociationSet Name="BAS_PostUDPSet" Association="PermissionModel.Store.BAS_PostUDPSet">
       <End Role="BAS_Post" EntitySet="BAS_Post" />
-      <End Role="UDPSet" EntitySet="UDPSet" />
+      <End Role="UDPSet" EntitySet="BAS_UDPSet" />
     </AssociationSet>
     <AssociationSet Name="BAS_DepartmentUDPSet" Association="PermissionModel.Store.BAS_DepartmentUDPSet">
       <End Role="BAS_Department" EntitySet="BAS_Department" />
-      <End Role="UDPSet" EntitySet="UDPSet" />
+      <End Role="UDPSet" EntitySet="BAS_UDPSet" />
     </AssociationSet>
     <AssociationSet Name="BAS_RoleBAS_PR" Association="PermissionModel.Store.BAS_RoleBAS_PR">
       <End Role="BAS_Role" EntitySet="BAS_Role" />
@@ -206,7 +206,7 @@
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Con_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
-  <EntityType Name="UDPSet">
+  <EntityType Name="BAS_UDPSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -342,7 +342,7 @@
   </Association>
   <Association Name="BAS_UserUDPSet">
     <End Role="BAS_User" Type="PermissionModel.Store.BAS_User" Multiplicity="1" />
-    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <End Role="UDPSet" Type="PermissionModel.Store.BAS_UDPSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BAS_User">
         <PropertyRef Name="Id" />
@@ -354,7 +354,7 @@
   </Association>
   <Association Name="BAS_PostUDPSet">
     <End Role="BAS_Post" Type="PermissionModel.Store.BAS_Post" Multiplicity="1" />
-    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <End Role="UDPSet" Type="PermissionModel.Store.BAS_UDPSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BAS_Post">
         <PropertyRef Name="Id" />
@@ -366,7 +366,7 @@
   </Association>
   <Association Name="BAS_DepartmentUDPSet">
     <End Role="BAS_Department" Type="PermissionModel.Store.BAS_Department" Multiplicity="1" />
-    <End Role="UDPSet" Type="PermissionModel.Store.UDPSet" Multiplicity="*" />
+    <End Role="UDPSet" Type="PermissionModel.Store.BAS_UDPSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BAS_Department">
         <PropertyRef Name="Id" />
@@ -506,18 +506,18 @@
           <EntitySet Name="BAS_User" EntityType="PermissionModel.BAS_User" />
           <EntitySet Name="BAS_Post" EntityType="PermissionModel.BAS_Post" />
           <EntitySet Name="BAS_Department" EntityType="PermissionModel.BAS_Department" />
-          <EntitySet Name="UDPSet" EntityType="PermissionModel.UDPSet" />
+          <EntitySet Name="BAS_UDPSet" EntityType="PermissionModel.BAS_UDPSet" />
           <AssociationSet Name="BAS_UserUDPSet" Association="PermissionModel.BAS_UserUDPSet">
             <End Role="BAS_User" EntitySet="BAS_User" />
-            <End Role="UDPSet" EntitySet="UDPSet" />
+            <End Role="UDPSet" EntitySet="BAS_UDPSet" />
           </AssociationSet>
           <AssociationSet Name="BAS_PostUDPSet" Association="PermissionModel.BAS_PostUDPSet">
             <End Role="BAS_Post" EntitySet="BAS_Post" />
-            <End Role="UDPSet" EntitySet="UDPSet" />
+            <End Role="UDPSet" EntitySet="BAS_UDPSet" />
           </AssociationSet>
           <AssociationSet Name="BAS_DepartmentUDPSet" Association="PermissionModel.BAS_DepartmentUDPSet">
             <End Role="BAS_Department" EntitySet="BAS_Department" />
-            <End Role="UDPSet" EntitySet="UDPSet" />
+            <End Role="UDPSet" EntitySet="BAS_UDPSet" />
           </AssociationSet>
           <EntitySet Name="BAS_Role" EntityType="PermissionModel.BAS_Role" />
           <EntitySet Name="BAS_PR" EntityType="PermissionModel.BAS_PR" />
@@ -706,7 +706,7 @@
           <NavigationProperty Name="UDPSet" Relationship="PermissionModel.BAS_DepartmentUDPSet" FromRole="BAS_Department" ToRole="UDPSet" />
           <NavigationProperty Name="BAS_DR" Relationship="PermissionModel.BAS_DepartmentBAS_DR" FromRole="BAS_Department" ToRole="BAS_DR" />
         </EntityType>
-        <EntityType Name="UDPSet">
+        <EntityType Name="BAS_UDPSet">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -718,15 +718,15 @@
         </EntityType>
         <Association Name="BAS_UserUDPSet">
           <End Type="PermissionModel.BAS_User" Role="BAS_User" Multiplicity="1" />
-          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+          <End Type="PermissionModel.BAS_UDPSet" Role="UDPSet" Multiplicity="*" />
         </Association>
         <Association Name="BAS_PostUDPSet">
           <End Type="PermissionModel.BAS_Post" Role="BAS_Post" Multiplicity="1" />
-          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+          <End Type="PermissionModel.BAS_UDPSet" Role="UDPSet" Multiplicity="*" />
         </Association>
         <Association Name="BAS_DepartmentUDPSet">
           <End Type="PermissionModel.BAS_Department" Role="BAS_Department" Multiplicity="1" />
-          <End Type="PermissionModel.UDPSet" Role="UDPSet" Multiplicity="*" />
+          <End Type="PermissionModel.BAS_UDPSet" Role="UDPSet" Multiplicity="*" />
         </Association>
         <EntityType Name="BAS_Role">
           <Key>
@@ -928,9 +928,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UDPSet">
-      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.UDPSet)">
-        <MappingFragment StoreEntitySet="UDPSet">
+    <EntitySetMapping Name="BAS_UDPSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PermissionModel.BAS_UDPSet)">
+        <MappingFragment StoreEntitySet="BAS_UDPSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IsMain" ColumnName="IsMain" />
         </MappingFragment>
@@ -1031,7 +1031,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BAS_UserUDPSet" TypeName="PermissionModel.BAS_UserUDPSet" StoreEntitySet="UDPSet">
+    <AssociationSetMapping Name="BAS_UserUDPSet" TypeName="PermissionModel.BAS_UserUDPSet" StoreEntitySet="BAS_UDPSet">
       <EndProperty Name="BAS_User">
         <ScalarProperty Name="Id" ColumnName="BAS_User_Id" />
       </EndProperty>
@@ -1039,7 +1039,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BAS_PostUDPSet" TypeName="PermissionModel.BAS_PostUDPSet" StoreEntitySet="UDPSet">
+    <AssociationSetMapping Name="BAS_PostUDPSet" TypeName="PermissionModel.BAS_PostUDPSet" StoreEntitySet="BAS_UDPSet">
       <EndProperty Name="BAS_Post">
         <ScalarProperty Name="Id" ColumnName="BAS_Post_Id" />
       </EndProperty>
@@ -1047,7 +1047,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BAS_DepartmentUDPSet" TypeName="PermissionModel.BAS_DepartmentUDPSet" StoreEntitySet="UDPSet">
+    <AssociationSetMapping Name="BAS_DepartmentUDPSet" TypeName="PermissionModel.BAS_DepartmentUDPSet" StoreEntitySet="BAS_UDPSet">
       <EndProperty Name="BAS_Department">
         <ScalarProperty Name="Id" ColumnName="BAS_Department_Id" />
       </EndProperty>

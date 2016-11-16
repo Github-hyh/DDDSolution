@@ -25,7 +25,7 @@
         <EntityTypeShape EntityType="PermissionModel.BAS_User" Width="1.5" PointX="14.875" PointY="2.875" />
         <EntityTypeShape EntityType="PermissionModel.BAS_Post" Width="1.5" PointX="14.75" PointY="0.5" />
         <EntityTypeShape EntityType="PermissionModel.BAS_Department" Width="1.5" PointX="14.75" PointY="5.375" />
-        <EntityTypeShape EntityType="PermissionModel.UDPSet" Width="1.5" PointX="19.5" PointY="3" />
+        <EntityTypeShape EntityType="PermissionModel.BAS_UDPSet" Width="1.5" PointX="19.5" PointY="3" />
         <AssociationConnector Association="PermissionModel.BAS_UserUDPSet" />
         <AssociationConnector Association="PermissionModel.BAS_PostUDPSet" />
         <AssociationConnector Association="PermissionModel.BAS_DepartmentUDPSet" />

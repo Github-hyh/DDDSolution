@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/16/2016 21:41:48
+-- Date Created: 11/16/2016 22:27:18
 -- Generated from EDMX file: F:\GitProject\DDDSolution\DDD.Domain\PermissionModel.edmx
 -- --------------------------------------------------
 
@@ -247,8 +247,8 @@ CREATE TABLE [dbo].[BAS_Department] (
 );
 GO
 
--- Creating table 'UDPSet'
-CREATE TABLE [dbo].[UDPSet] (
+-- Creating table 'BAS_UDPSet'
+CREATE TABLE [dbo].[BAS_UDPSet] (
     [Id] uniqueidentifier  NOT NULL,
     [IsMain] bit  NOT NULL,
     [BAS_User_Id] uniqueidentifier  NOT NULL,
@@ -379,9 +379,9 @@ ADD CONSTRAINT [PK_BAS_Department]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'UDPSet'
-ALTER TABLE [dbo].[UDPSet]
-ADD CONSTRAINT [PK_UDPSet]
+-- Creating primary key on [Id] in table 'BAS_UDPSet'
+ALTER TABLE [dbo].[BAS_UDPSet]
+ADD CONSTRAINT [PK_BAS_UDPSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -524,8 +524,8 @@ ON [dbo].[BAS_PPSet]
     ([BAS_PermissionSet_Id]);
 GO
 
--- Creating foreign key on [BAS_User_Id] in table 'UDPSet'
-ALTER TABLE [dbo].[UDPSet]
+-- Creating foreign key on [BAS_User_Id] in table 'BAS_UDPSet'
+ALTER TABLE [dbo].[BAS_UDPSet]
 ADD CONSTRAINT [FK_BAS_UserUDPSet]
     FOREIGN KEY ([BAS_User_Id])
     REFERENCES [dbo].[BAS_User]
@@ -535,12 +535,12 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BAS_UserUDPSet'
 CREATE INDEX [IX_FK_BAS_UserUDPSet]
-ON [dbo].[UDPSet]
+ON [dbo].[BAS_UDPSet]
     ([BAS_User_Id]);
 GO
 
--- Creating foreign key on [BAS_Post_Id] in table 'UDPSet'
-ALTER TABLE [dbo].[UDPSet]
+-- Creating foreign key on [BAS_Post_Id] in table 'BAS_UDPSet'
+ALTER TABLE [dbo].[BAS_UDPSet]
 ADD CONSTRAINT [FK_BAS_PostUDPSet]
     FOREIGN KEY ([BAS_Post_Id])
     REFERENCES [dbo].[BAS_Post]
@@ -550,12 +550,12 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BAS_PostUDPSet'
 CREATE INDEX [IX_FK_BAS_PostUDPSet]
-ON [dbo].[UDPSet]
+ON [dbo].[BAS_UDPSet]
     ([BAS_Post_Id]);
 GO
 
--- Creating foreign key on [BAS_Department_Id] in table 'UDPSet'
-ALTER TABLE [dbo].[UDPSet]
+-- Creating foreign key on [BAS_Department_Id] in table 'BAS_UDPSet'
+ALTER TABLE [dbo].[BAS_UDPSet]
 ADD CONSTRAINT [FK_BAS_DepartmentUDPSet]
     FOREIGN KEY ([BAS_Department_Id])
     REFERENCES [dbo].[BAS_Department]
@@ -565,7 +565,7 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BAS_DepartmentUDPSet'
 CREATE INDEX [IX_FK_BAS_DepartmentUDPSet]
-ON [dbo].[UDPSet]
+ON [dbo].[BAS_UDPSet]
     ([BAS_Department_Id]);
 GO
 
