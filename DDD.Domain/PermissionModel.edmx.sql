@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/16/2016 22:27:18
--- Generated from EDMX file: F:\GitProject\DDDSolution\DDD.Domain\PermissionModel.edmx
+-- Date Created: 11/22/2016 22:09:24
+-- Generated from EDMX file: C:\work\programing\DDDSolution\DDD.Domain\PermissionModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -39,13 +39,13 @@ IF OBJECT_ID(N'[dbo].[FK_BAS_PermissionSetBAS_PPSet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[BAS_PPSet] DROP CONSTRAINT [FK_BAS_PermissionSetBAS_PPSet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BAS_UserUDPSet]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_UserUDPSet];
+    ALTER TABLE [dbo].[BAS_UDPSet] DROP CONSTRAINT [FK_BAS_UserUDPSet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BAS_PostUDPSet]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_PostUDPSet];
+    ALTER TABLE [dbo].[BAS_UDPSet] DROP CONSTRAINT [FK_BAS_PostUDPSet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BAS_DepartmentUDPSet]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UDPSet] DROP CONSTRAINT [FK_BAS_DepartmentUDPSet];
+    ALTER TABLE [dbo].[BAS_UDPSet] DROP CONSTRAINT [FK_BAS_DepartmentUDPSet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BAS_RoleBAS_PR]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[BAS_PR] DROP CONSTRAINT [FK_BAS_RoleBAS_PR];
@@ -112,8 +112,8 @@ GO
 IF OBJECT_ID(N'[dbo].[BAS_Department]', 'U') IS NOT NULL
     DROP TABLE [dbo].[BAS_Department];
 GO
-IF OBJECT_ID(N'[dbo].[UDPSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UDPSet];
+IF OBJECT_ID(N'[dbo].[BAS_UDPSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BAS_UDPSet];
 GO
 IF OBJECT_ID(N'[dbo].[BAS_Role]', 'U') IS NOT NULL
     DROP TABLE [dbo].[BAS_Role];
