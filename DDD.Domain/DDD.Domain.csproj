@@ -65,6 +65,9 @@
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DomainService\BAS_DepartmentService.cs" />
+    <Compile Include="DomainService\BAS_DRService.cs" />
+    <Compile Include="DomainService\BAS_PostService.cs" />
+    <Compile Include="DomainService\BAS_PRService.cs" />
     <Compile Include="DomainService\BAS_UDPService.cs" />
     <Compile Include="Aggreate\IAggreateRoot.cs" />
     <Compile Include="Aggreate\IEntity.cs" />
@@ -132,6 +135,8 @@
     <Compile Include="CustomerInfo.cs">
       <DependentUpon>SalesOrdersModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DomainService\BAS_URService.cs" />
+    <Compile Include="DomainService\BAS_UserService.cs" />
     <Compile Include="DomainService\ISalesOrderService.cs" />
     <Compile Include="DomainService\SalesOrderService.cs" />
     <Compile Include="ModelPermission\BAS_Department.cs" />
@@ -141,6 +146,7 @@
     <Compile Include="ModelPermission\BAS_PR.cs" />
     <Compile Include="ModelPermission\BAS_Role.cs" />
     <Compile Include="ModelPermission\BAS_UDPSet.cs" />
+    <Compile Include="ModelPermission\BAS_UR.cs" />
     <Compile Include="ModelPermission\BAS_User.cs" />
     <Compile Include="ModelPermission\BAS_UserLogin.cs" />
     <Compile Include="Model\Address.cs" />
