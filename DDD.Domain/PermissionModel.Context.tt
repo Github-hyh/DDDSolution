@@ -53,11 +53,8 @@ using System.Linq;
 }
 #>
 
-<#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : DbContext
+public partial class SalesOrdersModelContainer : DbContext
 {
-    public <#=code.Escape(container)#>()
-        : base("name=<#=container.Name#>")
-    {
 <#
 if (!loader.IsLazyLoadingEnabled(container))
 {
@@ -78,12 +75,6 @@ foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     }
 }
 #>
-    }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
 
 <#
     foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())

@@ -13,17 +13,8 @@ namespace DDD.Domain
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PermissionModelContainer : DbContext
+    public partial class SalesOrdersModelContainer : DbContext
     {
-        public PermissionModelContainer()
-            : base("name=PermissionModelContainer")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
     
         public virtual DbSet<BAS_PermissionContainer> BAS_PermissionContainer { get; set; }
         public virtual DbSet<BAS_IdentityContainer> BAS_IdentityContainer { get; set; }

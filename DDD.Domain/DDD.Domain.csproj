@@ -68,6 +68,7 @@
     <Compile Include="DomainService\BAS_DRService.cs" />
     <Compile Include="DomainService\BAS_PostService.cs" />
     <Compile Include="DomainService\BAS_PRService.cs" />
+    <Compile Include="DomainService\BAS_RoleService.cs" />
     <Compile Include="DomainService\BAS_UDPService.cs" />
     <Compile Include="Aggreate\IAggreateRoot.cs" />
     <Compile Include="Aggreate\IEntity.cs" />
