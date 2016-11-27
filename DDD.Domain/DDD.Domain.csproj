@@ -66,6 +66,13 @@
     </Compile>
     <Compile Include="DomainService\BAS_DepartmentService.cs" />
     <Compile Include="DomainService\BAS_DRService.cs" />
+    <Compile Include="DomainService\BAS_ObjectService.cs" />
+    <Compile Include="DomainService\BAS_ObjectSetService.cs" />
+    <Compile Include="DomainService\BAS_OOSetService.cs" />
+    <Compile Include="ModelPermission\BAS_ObjectContainer.cs" />
+    <Compile Include="ModelPermission\BAS_Object.cs" />
+    <Compile Include="ModelPermission\BAS_ObjectSet.cs" />
+    <Compile Include="ModelPermission\BAS_OOSet.cs" />
     <Compile Include="DomainService\BAS_PostService.cs" />
     <Compile Include="DomainService\BAS_PRService.cs" />
     <Compile Include="DomainService\BAS_RoleService.cs" />
