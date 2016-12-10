@@ -12,7 +12,7 @@ namespace DDD.UnitTest
         {
             UserAppService userappservice =
                 new UserAppService();
-            userappservice.CreateUser("10", "曹剑", "13458629365", "pass");
+            userappservice.CreateUser("10", "Hyh", "12345678901", "pass");
             Assert.IsNotNull(userappservice.GetUserByNo("10"));
         }
 
@@ -78,6 +78,65 @@ namespace DDD.UnitTest
             postnames[0] = "高级会计师";
             roleservice.AddPostToRole(postnames, "角色1");
             Assert.IsTrue(roleservice.IsRoleContainPost("高级会计师", "角色1"));
+        }
+
+        [TestMethod]
+        public void AddObject()
+        {
+            ObjectAppService objectservice = new ObjectAppService();
+            objectservice.CreateObject("产品对象", "标识产品对象", "Product");
+            Assert.IsNotNull(objectservice.GetObjectByName("产品对象"));
+        }
+
+        [TestMethod]
+        public void AddObjectSet()
+        {
+            ObjectSetAppService objectsetservice = new ObjectSetAppService();
+            objectsetservice.CreateobjectSet("订单对象集", "包含订单业务所有的对象");
+            Assert.IsNotNull(objectsetservice.GetObjectSetByName("订单对象集"));
+        }
+
+        [TestMethod]
+        public void AddObjectToObjectSet()
+        {
+            ObjectSetAppService objectsetservice =
+                new ObjectSetAppService();
+            string[] objects = new string[1];
+            objects[0] = "产品对象";
+            objectsetservice.AddObjectToObjectSet(objects, "订单对象集");
+            Assert.IsTrue(objectsetservice.IsObjectSetContainObject("产品对象", "订单对象集"));
+        }
+
+        [TestMethod]
+        public void AddPermission()
+        {
+            PermissionAppService permissionservice =
+                new PermissionAppService();
+            permissionservice.CreatePermission("产品信息权限", "代表一个产品权限信息", "[ProductName,UnitPrice]",
+                "[{\"Field\":\"UnitPrice\",\"Operator\":\"Equal\",\"Value\":\"10\",\"Relation\":\"And\"}]",
+                Domain.OperationType.Read);
+            Assert.IsNotNull(permissionservice.GetPermissionByName("产品信息权限"));
+        }
+
+        [TestMethod]
+        public void AddPermissionSet()
+        {
+            PermissionSetAppService permissionsetservice =
+                new PermissionSetAppService();
+            permissionsetservice.CreatePermissionSet("普通用户权限集", "代表普通用户的一个权限集");
+            Assert.IsNotNull(permissionsetservice.GetPermissionSetByName("普通用户权限集"));
+        }
+
+        [TestMethod]
+        public void AddPermissionToPermissionSet()
+        {
+            PermissionSetAppService permissionsetservice =
+                new PermissionSetAppService();
+            string[] permissionnames = new string[1];
+            permissionnames[0] = "产品信息权限";
+            permissionsetservice.AddPermissionToPermissionSet(permissionnames,
+                "普通用户权限集");
+            Assert.IsTrue(permissionsetservice.IsPermissionSetContainpermission("产品信息权限", "普通用户权限集"));
         }
     }
 }

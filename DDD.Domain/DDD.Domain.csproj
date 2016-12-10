@@ -69,6 +69,7 @@
     <Compile Include="DomainService\BAS_ObjectService.cs" />
     <Compile Include="DomainService\BAS_ObjectSetService.cs" />
     <Compile Include="DomainService\BAS_OOSetService.cs" />
+    <Compile Include="DomainService\BAS_PPSetService.cs" />
     <Compile Include="ModelPermission\BAS_ObjectContainer.cs" />
     <Compile Include="ModelPermission\BAS_Object.cs" />
     <Compile Include="ModelPermission\BAS_ObjectSet.cs" />
@@ -150,7 +151,13 @@
     <Compile Include="ModelPermission\BAS_Department.cs" />
     <Compile Include="ModelPermission\BAS_DR.cs" />
     <Compile Include="ModelPermission\BAS_IdentityContainer.cs" />
+    <Compile Include="ModelPermission\BAS_Permission.cs" />
+    <Compile Include="ModelPermission\BAS_PermissionContainer.cs" />
+    <Compile Include="DomainService\BAS_PermissionService.cs" />
+    <Compile Include="ModelPermission\BAS_PermissionSet.cs" />
+    <Compile Include="DomainService\BAS_PermissionSetService.cs" />
     <Compile Include="ModelPermission\BAS_Post.cs" />
+    <Compile Include="ModelPermission\BAS_PPSet.cs" />
     <Compile Include="ModelPermission\BAS_PR.cs" />
     <Compile Include="ModelPermission\BAS_Role.cs" />
     <Compile Include="ModelPermission\BAS_UDPSet.cs" />

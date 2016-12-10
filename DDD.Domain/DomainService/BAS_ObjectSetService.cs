@@ -17,10 +17,11 @@ namespace DDD.Domain.DomainService
         BAS_ObjectSet bas_objectset;
         BAS_OOSet bas_ooset;
         BAS_OOSetService bas_oosetservice;
+
         public BAS_ObjectSetService(IRepository<BAS_ObjectSet> irepositoryobjectset,
-        IRepository<BAS_Object> irepositoryobject,
-        IRepository<BAS_ObjectContainer> irepositoryobjectcontainer,
-        IRepository<BAS_OOSet> irepositoryooset)
+            IRepository<BAS_Object> irepositoryobject,
+            IRepository<BAS_ObjectContainer> irepositoryobjectcontainer,
+            IRepository<BAS_OOSet> irepositoryooset)
         {
             this.irepositoryobject = irepositoryobject;
             this.irepositoryobjectset = irepositoryobjectset;

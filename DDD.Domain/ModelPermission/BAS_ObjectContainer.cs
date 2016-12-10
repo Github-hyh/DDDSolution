@@ -23,7 +23,7 @@ namespace DDD.Domain
         public void CreateObjectContainer(Guid obj_id)
         {
             var bas_objectcontainer = new BAS_ObjectContainer();
-            bas_objectcontainer.Id = base.Id;
+            bas_objectcontainer.Id = obj_id;
             irepository.Create(bas_objectcontainer);
         }
     }
