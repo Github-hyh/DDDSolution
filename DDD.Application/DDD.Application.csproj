@@ -54,6 +54,7 @@
     <Compile Include="ObjectAppService.cs" />
     <Compile Include="ObjectSetAppService.cs" />
     <Compile Include="PermissionAppService.cs" />
+    <Compile Include="PermissionAssignAppService.cs" />
     <Compile Include="PermissionSetAppService.cs" />
     <Compile Include="PostAppService.cs" />
     <Compile Include="ProductAppService.cs" />

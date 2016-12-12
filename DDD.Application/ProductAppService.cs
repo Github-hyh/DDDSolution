@@ -83,5 +83,27 @@ namespace DDD.Application
         {
             return this.productRepository.GetByConditionPages<ProductDTO>(conditions, p=>true, request, out totalCount);
         }
+
+        /// <summary>
+        /// 根据用户权限返回用户需要访问的信息
+        /// </summary>
+        /// <param name="conditions"></param>
+        /// <param name="request"></param>
+        /// <param name="totalcount"></param>
+        /// <returns></returns>
+        public List<Product> GetProductByCondition(List<Conditions> conditions,
+            RequestPage request, out int totalcount)
+        {
+            string selector;
+            var query = productRepository.GetByConditionPages(conditions, new PermissionAssignAppService<Product>()
+                .GetPermissionLamda(out selector, OperationType.Read), request, out totalcount)
+                .AsQueryable();
+            if (selector != null)
+            {
+                query = query.Select(selector);
+            }
+
+            return query.ToList();
+        }
     }
 }

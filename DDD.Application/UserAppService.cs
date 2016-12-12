@@ -95,5 +95,10 @@ namespace DDD.Application
                 .Concat(udpservice.GetUdpByPost(postname)).Concat
                 (udpservice.GetUdpByUser(userno)).ToList();
         }
+
+        public void UserLogin(string no, string password)
+        {
+            bas_userservice.UserLogin(no, password);
+        }
     }
 }

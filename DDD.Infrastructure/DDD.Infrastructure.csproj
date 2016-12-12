@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,11 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicQuery.cs" />
     <Compile Include="LamdaFilterConvert\Conditions.cs" />
     <Compile Include="LamdaFilterConvert\WhereLamdaConverter.cs" />
+    <Compile Include="MySessionState.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionHelper.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

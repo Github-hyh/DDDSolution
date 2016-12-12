@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DDD.Application;
+using DDD.Domain;
+using DDD.Domain.Repository;
+using DDD.Infrastructure.LamdaFilterConvert;
 
 namespace DDD.UnitTest
 {
@@ -137,6 +140,46 @@ namespace DDD.UnitTest
             permissionsetservice.AddPermissionToPermissionSet(permissionnames,
                 "普通用户权限集");
             Assert.IsTrue(permissionsetservice.IsPermissionSetContainpermission("产品信息权限", "普通用户权限集"));
+        }
+
+        [TestMethod]
+        public void CreatePermissionAssign()
+        {
+            var permissionassignservice =
+                new PermissionAssignAppService<Product>();
+            permissionassignservice.CreatePermissionAssgin("10", null, null, null, "产品对象",
+                null, "产品信息权限", null);
+        }
+
+        [TestMethod]
+        public void TestProductAccess()
+        {
+            MockHttpContext.Init();
+            int i;
+            UserAppService userservice =
+                new UserAppService();
+            userservice.UserLogin("10", "pass");
+
+            var fields = new string[1];
+            fields[0] = "ProductName";
+
+            var operators = new string[1];
+            operators[0] = "Equal";
+
+            var values = new string[1];
+            values[0] = "P3";
+
+            var relations = new string[1];
+            relations[0] = "And";
+
+            ProductAppService productservice =
+                new ProductAppService();
+            var pq = new RequestPage(1, 1, "ProductName", "desc");
+
+            Assert.AreEqual(1, productservice.GetProductByCondition(Conditions.BuildConditions(fields, operators, values, relations), pq, out i).Count);
+
+            Assert.IsNull(productservice.GetProductByCondition(Conditions.BuildConditions(fields, operators, values, relations), pq, out i)[0].Color);
+
         }
     }
 }
