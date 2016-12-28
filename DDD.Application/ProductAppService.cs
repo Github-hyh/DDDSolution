@@ -105,5 +105,43 @@ namespace DDD.Application
 
             return query.ToList();
         }
+
+        /// <summary>
+        /// 获取所以产品信息列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Product> GetAllProduct()
+        {
+            return product.GetAllProduct();
+        }
+
+        /// <summary>
+        /// 获取所以产品DTO信息列表
+        /// </summary>
+        /// <returns></returns>
+        public List<ProductDTO> GetAllProductDTO()
+        {
+            return product.GetAllProductDTO();
+        }
+
+        /// <summary>
+        /// 修改产品DTO
+        /// </summary>
+        /// <param name="productdto"></param>
+        public void ModifyProductDTO(ProductDTO productdto)
+        {
+            product.ModifyProductDTO(productdto);
+            context.Commit();
+        }
+
+        /// <summary>
+        /// 删除产品对象
+        /// </summary>
+        /// <param name="productname"></param>
+        public void DropProduct(string productname)
+        {
+            product.DropProduct(productname);
+            context.Commit();
+        }
     }
 }

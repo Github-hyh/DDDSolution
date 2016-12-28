@@ -12,11 +12,11 @@ namespace DDD.Domain
 {
     public partial class Product:AggreateRoot
     {
-        private IRepository<Product> _IRepository;
+        private IRepository<Product> irepository;
 
         public Product(IRepository<Product> irepository)
         {
-            _IRepository = irepository;
+            this.irepository = irepository;
             //ProductMapping();
         }
 
@@ -39,7 +39,7 @@ namespace DDD.Domain
         public void CreateProduct(ProductDTO productDTO)
         {
             productDTO.Id = Guid.NewGuid();
-            this._IRepository.Create(productDTO);
+            this.irepository.Create(productDTO);
         }
 
         public void ModifyCount(Product p, int amount, IRepository<Product> irepository)
@@ -50,7 +50,28 @@ namespace DDD.Domain
 
         public Product GetProductByName(string pName)
         {
-            return this._IRepository.GetByCondition(p => p.ProductName == pName, p=>true).FirstOrDefault();
+            return this.irepository.GetByCondition(p => p.ProductName == pName, p=>true).FirstOrDefault();
+        }
+
+        public List<Product> GetAllProduct()
+        {
+            return irepository.GetByCondition(p => true, p => true);
+        }
+
+        public List<ProductDTO> GetAllProductDTO()
+        {
+            return irepository.GetByCondition<ProductDTO>(p => true, p => true);
+        }
+
+        public void ModifyProductDTO(ProductDTO productdto)
+        {
+            irepository.Update<ProductDTO>(productdto);
+        }
+
+        public void DropProduct(string productname)
+        {
+            var product = irepository.GetByCondition(p => p.ProductName == productname, p => true).SingleOrDefault();
+            irepository.Remove(product);
         }
     }
 }
