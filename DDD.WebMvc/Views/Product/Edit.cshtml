@@ -1,0 +1,47 @@
+﻿@model DDD.TransferDTOS.ProductDTO
+
+@{ 
+    ViewBag.Title = "Edit";
+}
+
+<h2>编辑产品</h2>
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.Label("Id:")
+        @Html.EditorFor(p => p.Id)
+    </div>
+    <div>
+        @Html.Label("产品名：")
+        @Html.EditorFor(p => p.Name)
+        @Html.ValidationMessageFor(p => p.Name)
+
+    </div>
+    <div>
+        @Html.Label("颜色：")
+        @Html.EditorFor(p => p.Color)
+    </div>
+    <div>
+        @Html.Label("尺寸：")
+        @Html.EditorFor(p => p.Size)
+    </div>
+    <div>
+        @Html.Label("数量：")
+        @Html.EditorFor(p => p.Amount)
+    </div>
+    <div>
+        @Html.Label("单价：")
+        @Html.EditorFor(p => p.UnitPrice)
+    </div>
+    <div>
+        @Html.Label("所属类别：")
+        @Html.EditorFor(p => p.PCategoryName)
+    </div>
+    <div>
+        @Html.Label("类别描述：")
+        @Html.EditorFor(p => p.PDescription)
+    </div>
+    <p><input value="修改产品" type="submit" /></p>
+}

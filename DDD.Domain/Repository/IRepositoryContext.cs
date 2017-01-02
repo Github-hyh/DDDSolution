@@ -21,7 +21,7 @@ namespace DDD.Domain.Repository
         void RegisterUpdateDTO<TDTO,TAggreateRoot>(TDTO tdto, Action<TDTO> process) where TAggreateRoot :
             class, IAggreateRoot;
 
-        void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot) where TAggreateRoot :
+        void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot, IEnumerable<object> objs) where TAggreateRoot :
             class, IAggreateRoot;
 
         void RegisterRemoveDTO<TDTO,TAggreateRoot>(TDTO tdto, Action<TDTO> process) where TAggreateRoot :

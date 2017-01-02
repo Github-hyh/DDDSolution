@@ -54,6 +54,7 @@ namespace DDD.Application
             var mapOut = Mapper.CreateMap<Product, ProductDTO>();
             mapOut.ConstructProjectionUsing(p => new ProductDTO
             {
+                Id = p.Id,
                 Name = p.ProductName,
                 Size = p.Size,
                 Color = p.Color,
@@ -67,6 +68,7 @@ namespace DDD.Application
         public void CreateProduct(ProductDTO productdto)
         {
             product.CreateProduct(productdto);
+            context.Commit();
         }
         
         public Product GetProductByName(string name)
@@ -107,7 +109,7 @@ namespace DDD.Application
         }
 
         /// <summary>
-        /// 获取所以产品信息列表
+        /// 获取所有产品信息列表
         /// </summary>
         /// <returns></returns>
         public List<Product> GetAllProduct()
@@ -116,7 +118,7 @@ namespace DDD.Application
         }
 
         /// <summary>
-        /// 获取所以产品DTO信息列表
+        /// 获取所有产品DTO信息列表
         /// </summary>
         /// <returns></returns>
         public List<ProductDTO> GetAllProductDTO()

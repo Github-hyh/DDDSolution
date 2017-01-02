@@ -37,7 +37,7 @@ namespace DDD.Domain.Repository
             m_localCommitted.Value = false;
         }
 
-        public virtual void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot) where TAggreateRoot :
+        public virtual void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot, IEnumerable<object> objs) where TAggreateRoot :
             class, IAggreateRoot
         {
             if (aggreateRoot.Id.Equals(Guid.Empty))

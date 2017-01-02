@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DDD.TransferDTOS.ProductDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>产品列表</h2>
+<a href="/Product/Create">创建产品</a>
+<div>
+    <table>
+        <tr>
+            <td>产品名</td>
+            <td>颜色</td>
+            <td>尺寸</td>
+            <td>数量</td>
+            <td>单价</td>
+            <td>所属类别</td>
+            <td>类别描述</td>
+        </tr>
+        @foreach(var productdto in Model)
+        {
+            <tr>
+                <td>@productdto.Name</td>
+                <td>@productdto.Color</td>
+                <td>@productdto.Size</td>
+                <td>@productdto.Amount</td>
+                <td>@productdto.UnitPrice</td>
+                <td>@productdto.PCategoryName</td>
+                <td>@productdto.PDescription</td>
+                <td><a href="/Product/Edit?ProductName=@productdto.Name"/>编辑</td>
+                <td><a href="/Product/Del?ProductName=@productdto.Name"/>删除</td>
+            </tr>
+        }
+    </table>
+</div>

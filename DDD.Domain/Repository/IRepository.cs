@@ -35,7 +35,7 @@ namespace DDD.Domain.Repository
 
         void Update<TDTO>(TDTO tdto);
 
-        void Remove(TAggreate aggreateRoot);
+        void Remove(TAggreate aggreateRoot, IEnumerable<object> objs);
 
         void Remove<TDTO>(TDTO tdto);
 

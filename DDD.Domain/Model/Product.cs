@@ -71,7 +71,10 @@ namespace DDD.Domain
         public void DropProduct(string productname)
         {
             var product = irepository.GetByCondition(p => p.ProductName == productname, p => true).SingleOrDefault();
-            irepository.Remove(product);
+            List<ProductCategory> pcs = new List<ProductCategory>();
+            var productcategory = product.ProductCategory;
+            pcs.Add(productcategory);
+            irepository.Remove(product,pcs);
         }
     }
 }

@@ -83,6 +83,12 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -204,6 +210,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +278,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +297,14 @@
     <ProjectReference Include="..\DDD.Application\DDD.Application.csproj">
       <Project>{4f6a57f9-4621-481c-a301-a0a5a7b6bffc}</Project>
       <Name>DDD.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDD.Domain\DDD.Domain.csproj">
+      <Project>{494aa847-fd34-42b7-a78a-d73199e658ca}</Project>
+      <Name>DDD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDD.Repository\DDD.Repository.csproj">
+      <Project>{3793fc42-57e0-4e6a-8b48-c98f220b747c}</Project>
+      <Name>DDD.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\DDD.TransferDTOS\DDD.TransferDTOS.csproj">
       <Project>{5ee7dc4d-30f8-4ae3-ad99-2817007929a7}</Project>

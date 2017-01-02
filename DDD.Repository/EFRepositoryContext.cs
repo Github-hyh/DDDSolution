@@ -56,10 +56,14 @@ namespace DDD.Repository
             RegisterUpdate<TAggreateRoot>(aggreateRoot);
         }
 
-        public override void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot)
+        public override void RegisterRemove<TAggreateRoot>(TAggreateRoot aggreateRoot, IEnumerable<object> objs)
         {
             //orderDbContext.Entry<TAggreateRoot>(aggreateRoot).State = System.Data.Entity.EntityState.Deleted;
             orderDbContext.Set<TAggreateRoot>().Remove(aggreateRoot);
+            foreach(var obj in objs)
+            {
+                orderDbContext.Entry(obj).State = EntityState.Deleted;
+            }
             Committed = false;
         }
 
@@ -71,7 +75,7 @@ namespace DDD.Repository
             }
 
             var aggreateRoot = Mapper.Map<TDTO, TAggreateRoot>(tdto);
-            RegisterRemove<TAggreateRoot>(aggreateRoot);
+            //RegisterRemove<TAggreateRoot>(aggreateRoot);
         }
 
         public override void Commit()

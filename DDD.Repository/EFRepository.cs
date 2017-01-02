@@ -92,9 +92,9 @@ namespace DDD.Repository
             return Mapper.Map<TAggreateRoot, TDTO>(aggreateRoot);
         }
 
-        public void Remove(TAggreateRoot aggreateRoot)
+        public void Remove(TAggreateRoot aggreateRoot, IEnumerable<object> objs)
         {
-            base.RegisterRemove(aggreateRoot);
+            base.RegisterRemove(aggreateRoot, objs);
         }
 
         public void Remove<TDTO>(TDTO tdto)
