@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>创建订单</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.Label("选择客户：")
+        @Html.DropDownList("CustomerName")
+    </div>
+    <div>
+        @Html.Label("省：")
+        @Html.TextBox("State")
+    </div>
+    <div>
+        @Html.Label("市:")
+        @Html.TextBox("City")
+    </div>
+    <div>
+        @Html.Label("详细地址:")
+        @Html.TextBox("Street")
+    </div>
+    <h3>订单项</h3>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    @Html.Label("选择产品：")
+                </td>
+                <td>@Html.DropDownList("ProductName")</td>
+                <td>@Html.Label("数量")</td>
+                <td>@Html.TextBox("Amount")</td>
+            </tr>
+        </table>
+    </div>
+    <p><input value="创建订单" type="submit" /></p>
+}
+

@@ -1,5 +1,6 @@
 ﻿using DDD.Domain.Model;
 using DDD.Domain.Repository;
+using DDD.TransferDTOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,11 @@ namespace DDD.Domain
                 order.TotalPrice += orderItem.LineTotal;
             }
             this._IRepository.Create(order);
+        }
+
+        public List<SalesOrderDTO> GetAllSalesOrder()
+        {
+            return _IRepository.GetByCondition<SalesOrderDTO>(p => true, p => true);
         }
     }
 }

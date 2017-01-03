@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DDD.TransferDTOS.SalesOrderDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>销售订单</h2>
+<p>@Html.ActionLink("创建订单", "Create")</p>
+<div>
+    <table>
+        <tr>
+            <th>客户名</th>
+            <th>手机号</th>
+            <th>送货地址</th>
+            <th>总金额</th>
+            <th>下单时间</th>
+        </tr>
+        @foreach (var salesorderdto in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(p => salesorderdto.CustomerName)</td>
+                <td>@Html.DisplayFor(p => salesorderdto.Mobile)</td>
+                <td>@Html.DisplayFor(p => salesorderdto.Address)</td>
+                <td>@Html.DisplayFor(p => salesorderdto.TotalPrice)</td>
+                <td>@Html.DisplayFor(p => salesorderdto.CreateTime)</td>
+                <td>@Html.ActionLink("编辑", "Edit", new { salesorderdto = salesorderdto.Id })</td>
+                <td>@Html.ActionLink("删除", "Del", new { salesorderdto = salesorderdto.Id })</td>
+            </tr>
+        }
+    </table>
+</div>

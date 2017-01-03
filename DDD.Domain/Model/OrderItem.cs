@@ -9,6 +9,8 @@ namespace DDD.Domain
 {
     public partial class OrderItem:Entity
     {
+        public OrderItem() { }
+
         public OrderItem(Product product,int count)
         {
             this.Id = base.Id;

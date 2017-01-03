@@ -37,5 +37,10 @@ namespace DDD.Domain
         {
             return this._IRepository.GetByCondition(c => c.Name == name, p=>true).FirstOrDefault();
         }
+
+        public List<Customer> GetAllCustomer()
+        {
+            return _IRepository.GetByCondition(p => true, p => true);
+        }
     }
 }

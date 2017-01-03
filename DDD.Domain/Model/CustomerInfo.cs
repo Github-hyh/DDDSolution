@@ -9,6 +9,8 @@ namespace DDD.Domain
 {
     public partial class CustomerInfo:ValueObject
     {
+        public CustomerInfo() { }
+
         public CustomerInfo(Customer customer, Address address)
         {
             this.Id = base.Id;
